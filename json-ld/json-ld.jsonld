@@ -1,0 +1,65 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "gmail": "https://gmail.googleapis.com/gmail/v1/",
+    "goog": "https://developers.google.com/workspace/gmail/api/reference/rest/v1/",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "provider": "schema:provider",
+    "dateCreated": "schema:dateCreated",
+    "dateModified": "schema:dateModified",
+    "Message": {
+      "@id": "goog:users.messages",
+      "@context": {
+        "id": "schema:identifier",
+        "threadId": "schema:isPartOf",
+        "snippet": "schema:abstract",
+        "labelIds": "schema:keywords",
+        "internalDate": "schema:dateCreated",
+        "sizeEstimate": "schema:contentSize",
+        "raw": "schema:encodingFormat"
+      }
+    },
+    "Label": {
+      "@id": "goog:users.labels",
+      "@context": {
+        "id": "schema:identifier",
+        "name": "schema:name",
+        "type": "schema:additionalType"
+      }
+    },
+    "Thread": {
+      "@id": "goog:users.threads",
+      "@context": {
+        "id": "schema:identifier",
+        "snippet": "schema:abstract",
+        "messages": "schema:hasPart"
+      }
+    },
+    "Draft": {
+      "@id": "goog:users.drafts",
+      "@context": {
+        "id": "schema:identifier",
+        "message": "schema:hasPart"
+      }
+    },
+    "Profile": {
+      "@id": "goog:users",
+      "@context": {
+        "emailAddress": "schema:email",
+        "messagesTotal": "schema:size",
+        "threadsTotal": "schema:size"
+      }
+    }
+  },
+  "@type": "WebAPI",
+  "name": "Google Gmail API",
+  "description": "The Gmail API lets you view and manage Gmail mailbox data like threads, messages, and labels.",
+  "url": "https://developers.google.com/workspace/gmail/api/guides",
+  "provider": {
+    "@type": "Organization",
+    "name": "Google",
+    "url": "https://developers.google.com"
+  }
+}

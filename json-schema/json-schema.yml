@@ -1,0 +1,150 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://raw.githubusercontent.com/api-evangelist/google-gmail/refs/heads/main/json-schema/json-schema.yml
+title: Google Gmail API Schemas
+description: JSON Schema definitions for the Google Gmail API resources.
+type: object
+$defs:
+  Profile:
+    type: object
+    title: Gmail Profile
+    description: A user's Gmail profile information.
+    properties:
+      emailAddress:
+        type: string
+        description: The user's email address.
+      messagesTotal:
+        type: integer
+        description: The total number of messages in the mailbox.
+      threadsTotal:
+        type: integer
+        description: The total number of threads in the mailbox.
+      historyId:
+        type: string
+        description: The ID of the mailbox's current history record.
+  Message:
+    type: object
+    title: Gmail Message
+    description: An email message in a Gmail mailbox.
+    properties:
+      id:
+        type: string
+        description: The immutable ID of the message.
+      threadId:
+        type: string
+        description: The ID of the thread the message belongs to.
+      labelIds:
+        type: array
+        description: List of IDs of labels applied to this message.
+        items:
+          type: string
+      snippet:
+        type: string
+        description: A short part of the message text.
+      historyId:
+        type: string
+        description: The ID of the last history record that modified this message.
+      internalDate:
+        type: string
+        description: The internal message creation timestamp in milliseconds.
+      sizeEstimate:
+        type: integer
+        description: Estimated size in bytes of the message.
+      raw:
+        type: string
+        description: The entire email message in RFC 2822 format, base64url encoded.
+      payload:
+        $ref: '#/$defs/MessagePart'
+  MessagePart:
+    type: object
+    title: Message Part
+    description: A single MIME message part.
+    properties:
+      partId:
+        type: string
+      mimeType:
+        type: string
+      filename:
+        type: string
+      headers:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+            value:
+              type: string
+      body:
+        type: object
+        properties:
+          attachmentId:
+            type: string
+          size:
+            type: integer
+          data:
+            type: string
+  Label:
+    type: object
+    title: Gmail Label
+    description: A label used to categorize messages and threads.
+    properties:
+      id:
+        type: string
+        description: The immutable ID of the label.
+      name:
+        type: string
+        description: The display name of the label.
+      messageListVisibility:
+        type: string
+        description: The visibility of messages with this label in the message list.
+        enum: [show, hide]
+      labelListVisibility:
+        type: string
+        description: The visibility of the label in the label list.
+        enum: [labelShow, labelShowIfUnread, labelHide]
+      type:
+        type: string
+        description: The owner type for the label.
+        enum: [system, user]
+      messagesTotal:
+        type: integer
+        description: The total number of messages with the label.
+      messagesUnread:
+        type: integer
+        description: The number of unread messages with the label.
+      threadsTotal:
+        type: integer
+        description: The total number of threads with the label.
+      threadsUnread:
+        type: integer
+        description: The number of unread threads with the label.
+  Thread:
+    type: object
+    title: Gmail Thread
+    description: A collection of related messages forming a conversation thread.
+    properties:
+      id:
+        type: string
+        description: The unique ID of the thread.
+      snippet:
+        type: string
+        description: A short part of the message text.
+      historyId:
+        type: string
+        description: The ID of the last history record that modified this thread.
+      messages:
+        type: array
+        description: The list of messages in the thread.
+        items:
+          $ref: '#/$defs/Message'
+  Draft:
+    type: object
+    title: Gmail Draft
+    description: A draft email message.
+    properties:
+      id:
+        type: string
+        description: The immutable ID of the draft.
+      message:
+        $ref: '#/$defs/Message'
+        description: The message content of the draft.
