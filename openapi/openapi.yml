@@ -16,7 +16,7 @@ paths:
   /gmail/v1/users/{userId}/profile:
     get:
       operationId: getUserProfile
-      summary: Get user profile
+      summary: Google Gmail Get user profile
       description: Gets the current user's Gmail profile.
       parameters:
         - name: userId
@@ -34,7 +34,7 @@ paths:
   /gmail/v1/users/{userId}/messages:
     get:
       operationId: listMessages
-      summary: List messages
+      summary: Google Gmail List messages
       description: Lists the messages in the user's mailbox.
       parameters:
         - name: userId
@@ -69,7 +69,7 @@ paths:
                 $ref: '#/components/schemas/ListMessagesResponse'
     post:
       operationId: insertMessage
-      summary: Insert message
+      summary: Google Gmail Insert message
       description: Directly inserts a message into the user's mailbox.
       parameters:
         - name: userId
@@ -92,7 +92,7 @@ paths:
   /gmail/v1/users/{userId}/messages/{id}:
     get:
       operationId: getMessage
-      summary: Get message
+      summary: Google Gmail Get message
       description: Gets the specified message.
       parameters:
         - name: userId
@@ -119,7 +119,7 @@ paths:
                 $ref: '#/components/schemas/Message'
     delete:
       operationId: deleteMessage
-      summary: Delete message
+      summary: Google Gmail Delete message
       description: Immediately and permanently deletes the specified message.
       parameters:
         - name: userId
@@ -138,7 +138,7 @@ paths:
   /gmail/v1/users/{userId}/messages/send:
     post:
       operationId: sendMessage
-      summary: Send message
+      summary: Google Gmail Send message
       description: Sends the specified message to the recipients.
       parameters:
         - name: userId
@@ -161,7 +161,7 @@ paths:
   /gmail/v1/users/{userId}/messages/{id}/modify:
     post:
       operationId: modifyMessage
-      summary: Modify message
+      summary: Google Gmail Modify message
       description: Modifies the labels on the specified message.
       parameters:
         - name: userId
@@ -189,7 +189,7 @@ paths:
   /gmail/v1/users/{userId}/messages/{id}/trash:
     post:
       operationId: trashMessage
-      summary: Trash message
+      summary: Google Gmail Trash message
       description: Moves the specified message to the trash.
       parameters:
         - name: userId
@@ -212,7 +212,7 @@ paths:
   /gmail/v1/users/{userId}/messages/{id}/untrash:
     post:
       operationId: untrashMessage
-      summary: Untrash message
+      summary: Google Gmail Untrash message
       description: Removes the specified message from the trash.
       parameters:
         - name: userId
@@ -235,7 +235,7 @@ paths:
   /gmail/v1/users/{userId}/labels:
     get:
       operationId: listLabels
-      summary: List labels
+      summary: Google Gmail List labels
       description: Lists all labels in the user's mailbox.
       parameters:
         - name: userId
@@ -252,7 +252,7 @@ paths:
                 $ref: '#/components/schemas/ListLabelsResponse'
     post:
       operationId: createLabel
-      summary: Create label
+      summary: Google Gmail Create label
       description: Creates a new label.
       parameters:
         - name: userId
@@ -275,7 +275,7 @@ paths:
   /gmail/v1/users/{userId}/labels/{id}:
     get:
       operationId: getLabel
-      summary: Get label
+      summary: Google Gmail Get label
       description: Gets the specified label.
       parameters:
         - name: userId
@@ -297,7 +297,7 @@ paths:
                 $ref: '#/components/schemas/Label'
     put:
       operationId: updateLabel
-      summary: Update label
+      summary: Google Gmail Update label
       description: Updates the specified label.
       parameters:
         - name: userId
@@ -324,7 +324,7 @@ paths:
                 $ref: '#/components/schemas/Label'
     delete:
       operationId: deleteLabel
-      summary: Delete label
+      summary: Google Gmail Delete label
       description: Immediately and permanently deletes the specified label.
       parameters:
         - name: userId
@@ -343,7 +343,7 @@ paths:
   /gmail/v1/users/{userId}/threads:
     get:
       operationId: listThreads
-      summary: List threads
+      summary: Google Gmail List threads
       description: Lists the threads in the user's mailbox.
       parameters:
         - name: userId
@@ -373,7 +373,7 @@ paths:
   /gmail/v1/users/{userId}/threads/{id}:
     get:
       operationId: getThread
-      summary: Get thread
+      summary: Google Gmail Get thread
       description: Gets the specified thread.
       parameters:
         - name: userId
@@ -395,7 +395,7 @@ paths:
                 $ref: '#/components/schemas/Thread'
     delete:
       operationId: deleteThread
-      summary: Delete thread
+      summary: Google Gmail Delete thread
       description: Immediately and permanently deletes the specified thread.
       parameters:
         - name: userId
@@ -414,7 +414,7 @@ paths:
   /gmail/v1/users/{userId}/drafts:
     get:
       operationId: listDrafts
-      summary: List drafts
+      summary: Google Gmail List drafts
       description: Lists the drafts in the user's mailbox.
       parameters:
         - name: userId
@@ -431,7 +431,7 @@ paths:
                 $ref: '#/components/schemas/ListDraftsResponse'
     post:
       operationId: createDraft
-      summary: Create draft
+      summary: Google Gmail Create draft
       description: Creates a new draft with the DRAFT label.
       parameters:
         - name: userId
@@ -454,7 +454,7 @@ paths:
   /gmail/v1/users/{userId}/drafts/{id}:
     get:
       operationId: getDraft
-      summary: Get draft
+      summary: Google Gmail Get draft
       description: Gets the specified draft.
       parameters:
         - name: userId
@@ -476,7 +476,7 @@ paths:
                 $ref: '#/components/schemas/Draft'
     put:
       operationId: updateDraft
-      summary: Update draft
+      summary: Google Gmail Update draft
       description: Replaces a draft's content.
       parameters:
         - name: userId
@@ -503,7 +503,7 @@ paths:
                 $ref: '#/components/schemas/Draft'
     delete:
       operationId: deleteDraft
-      summary: Delete draft
+      summary: Google Gmail Delete draft
       description: Immediately and permanently deletes the specified draft.
       parameters:
         - name: userId
@@ -522,7 +522,7 @@ paths:
   /gmail/v1/users/{userId}/drafts/send:
     post:
       operationId: sendDraft
-      summary: Send draft
+      summary: Google Gmail Send draft
       description: Sends the specified existing draft to the recipients.
       parameters:
         - name: userId
@@ -545,7 +545,7 @@ paths:
   /gmail/v1/users/{userId}/history:
     get:
       operationId: listHistory
-      summary: List history
+      summary: Google Gmail List history
       description: Lists the history of all changes to the given mailbox.
       parameters:
         - name: userId
@@ -568,7 +568,7 @@ paths:
   /gmail/v1/users/{userId}/watch:
     post:
       operationId: watchMailbox
-      summary: Watch mailbox
+      summary: Google Gmail Watch mailbox
       description: Set up or update a push notification watch on the given user mailbox.
       parameters:
         - name: userId
@@ -591,7 +591,7 @@ paths:
   /gmail/v1/users/{userId}/stop:
     post:
       operationId: stopMailboxWatch
-      summary: Stop watching mailbox
+      summary: Google Gmail Stop watching mailbox
       description: Stop receiving push notifications for the given user mailbox.
       parameters:
         - name: userId
@@ -605,7 +605,7 @@ paths:
   /gmail/v1/users/{userId}/settings/autoForwarding:
     get:
       operationId: getAutoForwarding
-      summary: Get auto-forwarding settings
+      summary: Google Gmail Get auto-forwarding settings
       description: Gets the auto-forwarding setting for the specified account.
       parameters:
         - name: userId
@@ -619,7 +619,7 @@ paths:
   /gmail/v1/users/{userId}/settings/filters:
     get:
       operationId: listFilters
-      summary: List filters
+      summary: Google Gmail List filters
       description: Lists the message filters of a Gmail user.
       parameters:
         - name: userId
@@ -632,7 +632,7 @@ paths:
           description: Successful response
     post:
       operationId: createFilter
-      summary: Create filter
+      summary: Google Gmail Create filter
       description: Creates a filter.
       parameters:
         - name: userId
