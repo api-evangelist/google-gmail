@@ -31,6 +31,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Profile'
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/messages:
     get:
       operationId: listMessages
@@ -67,6 +69,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListMessagesResponse'
+      tags:
+        - Gmail
     post:
       operationId: insertMessage
       summary: Google Gmail Insert message
@@ -89,6 +93,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Message'
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/messages/{id}:
     get:
       operationId: getMessage
@@ -117,6 +123,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Message'
+      tags:
+        - Gmail
     delete:
       operationId: deleteMessage
       summary: Google Gmail Delete message
@@ -135,6 +143,8 @@ paths:
       responses:
         '204':
           description: Successful deletion
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/messages/send:
     post:
       operationId: sendMessage
@@ -158,6 +168,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Message'
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/messages/{id}/modify:
     post:
       operationId: modifyMessage
@@ -186,6 +198,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Message'
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/messages/{id}/trash:
     post:
       operationId: trashMessage
@@ -209,6 +223,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Message'
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/messages/{id}/untrash:
     post:
       operationId: untrashMessage
@@ -232,6 +248,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Message'
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/labels:
     get:
       operationId: listLabels
@@ -250,6 +268,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListLabelsResponse'
+      tags:
+        - Gmail
     post:
       operationId: createLabel
       summary: Google Gmail Create label
@@ -272,6 +292,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Label'
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/labels/{id}:
     get:
       operationId: getLabel
@@ -295,6 +317,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Label'
+      tags:
+        - Gmail
     put:
       operationId: updateLabel
       summary: Google Gmail Update label
@@ -322,6 +346,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Label'
+      tags:
+        - Gmail
     delete:
       operationId: deleteLabel
       summary: Google Gmail Delete label
@@ -340,6 +366,8 @@ paths:
       responses:
         '204':
           description: Successful deletion
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/threads:
     get:
       operationId: listThreads
@@ -370,6 +398,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListThreadsResponse'
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/threads/{id}:
     get:
       operationId: getThread
@@ -393,6 +423,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Thread'
+      tags:
+        - Gmail
     delete:
       operationId: deleteThread
       summary: Google Gmail Delete thread
@@ -411,6 +443,8 @@ paths:
       responses:
         '204':
           description: Successful deletion
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/drafts:
     get:
       operationId: listDrafts
@@ -429,6 +463,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListDraftsResponse'
+      tags:
+        - Gmail
     post:
       operationId: createDraft
       summary: Google Gmail Create draft
@@ -451,6 +487,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Draft'
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/drafts/{id}:
     get:
       operationId: getDraft
@@ -474,6 +512,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Draft'
+      tags:
+        - Gmail
     put:
       operationId: updateDraft
       summary: Google Gmail Update draft
@@ -501,6 +541,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Draft'
+      tags:
+        - Gmail
     delete:
       operationId: deleteDraft
       summary: Google Gmail Delete draft
@@ -519,6 +561,8 @@ paths:
       responses:
         '204':
           description: Successful deletion
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/drafts/send:
     post:
       operationId: sendDraft
@@ -542,6 +586,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Message'
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/history:
     get:
       operationId: listHistory
@@ -565,6 +611,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListHistoryResponse'
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/watch:
     post:
       operationId: watchMailbox
@@ -588,6 +636,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WatchResponse'
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/stop:
     post:
       operationId: stopMailboxWatch
@@ -602,6 +652,8 @@ paths:
       responses:
         '204':
           description: Successful response
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/settings/autoForwarding:
     get:
       operationId: getAutoForwarding
@@ -616,6 +668,8 @@ paths:
       responses:
         '200':
           description: Successful response
+      tags:
+        - Gmail
   /gmail/v1/users/{userId}/settings/filters:
     get:
       operationId: listFilters
@@ -630,6 +684,8 @@ paths:
       responses:
         '200':
           description: Successful response
+      tags:
+        - Gmail
     post:
       operationId: createFilter
       summary: Google Gmail Create filter
@@ -643,6 +699,8 @@ paths:
       responses:
         '200':
           description: Successful response
+      tags:
+        - Gmail
 components:
   schemas:
     Profile:
@@ -792,3 +850,5 @@ components:
           type: string
         expiration:
           type: string
+tags:
+  - name: Gmail

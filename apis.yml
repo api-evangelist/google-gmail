@@ -14,14 +14,14 @@ modified: '2026-03-16'
 specificationVersion: '0.19'
 type: Index
 tags:
+  - Drafts
   - Email
   - Gmail
   - Google
   - Google Workspace
-  - Messaging
   - Labels
+  - Messaging
   - Threads
-  - Drafts
 apis:
   - name: Google Gmail API
     description: >-
@@ -32,12 +32,12 @@ apis:
     humanURL: https://developers.google.com/workspace/gmail/api/guides
     baseURL: https://gmail.googleapis.com
     tags:
+      - Drafts
       - Email
       - Gmail
-      - Messages
       - Labels
+      - Messages
       - Threads
-      - Drafts
     properties:
       - type: Documentation
         url: https://developers.google.com/workspace/gmail/api/reference/rest
