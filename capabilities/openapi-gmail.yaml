@@ -1,0 +1,1341 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Gmail API — Gmail
+  description: 'Google Gmail API — Gmail. 29 operations. Lead operation: Google Gmail List drafts. Self-contained Naftiko
+    capability covering one Google Gmail business surface.'
+  tags:
+  - Google Gmail
+  - Gmail
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_GMAIL_API_KEY: GOOGLE_GMAIL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: openapi-gmail
+    baseUri: https://gmail.googleapis.com
+    description: Google Gmail API — Gmail business capability. Self-contained, no shared references.
+    resources:
+    - name: gmail-v1-users-userId-drafts
+      path: /gmail/v1/users/{userId}/drafts
+      operations:
+      - name: listdrafts
+        method: GET
+        description: Google Gmail List drafts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+      - name: createdraft
+        method: POST
+        description: Google Gmail Create draft
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: gmail-v1-users-userId-drafts-send
+      path: /gmail/v1/users/{userId}/drafts/send
+      operations:
+      - name: senddraft
+        method: POST
+        description: Google Gmail Send draft
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: gmail-v1-users-userId-drafts-id
+      path: /gmail/v1/users/{userId}/drafts/{id}
+      operations:
+      - name: getdraft
+        method: GET
+        description: Google Gmail Get draft
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: updatedraft
+        method: PUT
+        description: Google Gmail Update draft
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deletedraft
+        method: DELETE
+        description: Google Gmail Delete draft
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: gmail-v1-users-userId-history
+      path: /gmail/v1/users/{userId}/history
+      operations:
+      - name: listhistory
+        method: GET
+        description: Google Gmail List history
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: startHistoryId
+          in: query
+          type: string
+          required: true
+    - name: gmail-v1-users-userId-labels
+      path: /gmail/v1/users/{userId}/labels
+      operations:
+      - name: listlabels
+        method: GET
+        description: Google Gmail List labels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+      - name: createlabel
+        method: POST
+        description: Google Gmail Create label
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: gmail-v1-users-userId-labels-id
+      path: /gmail/v1/users/{userId}/labels/{id}
+      operations:
+      - name: getlabel
+        method: GET
+        description: Google Gmail Get label
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: updatelabel
+        method: PUT
+        description: Google Gmail Update label
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deletelabel
+        method: DELETE
+        description: Google Gmail Delete label
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: gmail-v1-users-userId-messages
+      path: /gmail/v1/users/{userId}/messages
+      operations:
+      - name: listmessages
+        method: GET
+        description: Google Gmail List messages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: maxResults
+          in: query
+          type: integer
+        - name: pageToken
+          in: query
+          type: string
+        - name: q
+          in: query
+          type: string
+        - name: labelIds
+          in: query
+          type: array
+      - name: insertmessage
+        method: POST
+        description: Google Gmail Insert message
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: gmail-v1-users-userId-messages-send
+      path: /gmail/v1/users/{userId}/messages/send
+      operations:
+      - name: sendmessage
+        method: POST
+        description: Google Gmail Send message
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: gmail-v1-users-userId-messages-id
+      path: /gmail/v1/users/{userId}/messages/{id}
+      operations:
+      - name: getmessage
+        method: GET
+        description: Google Gmail Get message
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: format
+          in: query
+          type: string
+      - name: deletemessage
+        method: DELETE
+        description: Google Gmail Delete message
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: gmail-v1-users-userId-messages-id-modify
+      path: /gmail/v1/users/{userId}/messages/{id}/modify
+      operations:
+      - name: modifymessage
+        method: POST
+        description: Google Gmail Modify message
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: gmail-v1-users-userId-messages-id-trash
+      path: /gmail/v1/users/{userId}/messages/{id}/trash
+      operations:
+      - name: trashmessage
+        method: POST
+        description: Google Gmail Trash message
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: gmail-v1-users-userId-messages-id-untrash
+      path: /gmail/v1/users/{userId}/messages/{id}/untrash
+      operations:
+      - name: untrashmessage
+        method: POST
+        description: Google Gmail Untrash message
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: gmail-v1-users-userId-profile
+      path: /gmail/v1/users/{userId}/profile
+      operations:
+      - name: getuserprofile
+        method: GET
+        description: Google Gmail Get user profile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+    - name: gmail-v1-users-userId-settings-autoForwarding
+      path: /gmail/v1/users/{userId}/settings/autoForwarding
+      operations:
+      - name: getautoforwarding
+        method: GET
+        description: Google Gmail Get auto-forwarding settings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+    - name: gmail-v1-users-userId-settings-filters
+      path: /gmail/v1/users/{userId}/settings/filters
+      operations:
+      - name: listfilters
+        method: GET
+        description: Google Gmail List filters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+      - name: createfilter
+        method: POST
+        description: Google Gmail Create filter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+    - name: gmail-v1-users-userId-stop
+      path: /gmail/v1/users/{userId}/stop
+      operations:
+      - name: stopmailboxwatch
+        method: POST
+        description: Google Gmail Stop watching mailbox
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+    - name: gmail-v1-users-userId-threads
+      path: /gmail/v1/users/{userId}/threads
+      operations:
+      - name: listthreads
+        method: GET
+        description: Google Gmail List threads
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: maxResults
+          in: query
+          type: integer
+        - name: pageToken
+          in: query
+          type: string
+        - name: q
+          in: query
+          type: string
+    - name: gmail-v1-users-userId-threads-id
+      path: /gmail/v1/users/{userId}/threads/{id}
+      operations:
+      - name: getthread
+        method: GET
+        description: Google Gmail Get thread
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: deletethread
+        method: DELETE
+        description: Google Gmail Delete thread
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: gmail-v1-users-userId-watch
+      path: /gmail/v1/users/{userId}/watch
+      operations:
+      - name: watchmailbox
+        method: POST
+        description: Google Gmail Watch mailbox
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: openapi-gmail-rest
+    port: 8080
+    description: REST adapter for Google Gmail API — Gmail. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/gmail/v1/users/{userid}/drafts
+      name: gmail-v1-users-userid-drafts
+      description: REST surface for gmail-v1-users-userId-drafts.
+      operations:
+      - method: GET
+        name: listdrafts
+        description: Google Gmail List drafts
+        call: openapi-gmail.listdrafts
+        with:
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createdraft
+        description: Google Gmail Create draft
+        call: openapi-gmail.createdraft
+        with:
+          userId: rest.userId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/drafts/send
+      name: gmail-v1-users-userid-drafts-send
+      description: REST surface for gmail-v1-users-userId-drafts-send.
+      operations:
+      - method: POST
+        name: senddraft
+        description: Google Gmail Send draft
+        call: openapi-gmail.senddraft
+        with:
+          userId: rest.userId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/drafts/{id}
+      name: gmail-v1-users-userid-drafts-id
+      description: REST surface for gmail-v1-users-userId-drafts-id.
+      operations:
+      - method: GET
+        name: getdraft
+        description: Google Gmail Get draft
+        call: openapi-gmail.getdraft
+        with:
+          userId: rest.userId
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatedraft
+        description: Google Gmail Update draft
+        call: openapi-gmail.updatedraft
+        with:
+          userId: rest.userId
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletedraft
+        description: Google Gmail Delete draft
+        call: openapi-gmail.deletedraft
+        with:
+          userId: rest.userId
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/history
+      name: gmail-v1-users-userid-history
+      description: REST surface for gmail-v1-users-userId-history.
+      operations:
+      - method: GET
+        name: listhistory
+        description: Google Gmail List history
+        call: openapi-gmail.listhistory
+        with:
+          userId: rest.userId
+          startHistoryId: rest.startHistoryId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/labels
+      name: gmail-v1-users-userid-labels
+      description: REST surface for gmail-v1-users-userId-labels.
+      operations:
+      - method: GET
+        name: listlabels
+        description: Google Gmail List labels
+        call: openapi-gmail.listlabels
+        with:
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createlabel
+        description: Google Gmail Create label
+        call: openapi-gmail.createlabel
+        with:
+          userId: rest.userId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/labels/{id}
+      name: gmail-v1-users-userid-labels-id
+      description: REST surface for gmail-v1-users-userId-labels-id.
+      operations:
+      - method: GET
+        name: getlabel
+        description: Google Gmail Get label
+        call: openapi-gmail.getlabel
+        with:
+          userId: rest.userId
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatelabel
+        description: Google Gmail Update label
+        call: openapi-gmail.updatelabel
+        with:
+          userId: rest.userId
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletelabel
+        description: Google Gmail Delete label
+        call: openapi-gmail.deletelabel
+        with:
+          userId: rest.userId
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/messages
+      name: gmail-v1-users-userid-messages
+      description: REST surface for gmail-v1-users-userId-messages.
+      operations:
+      - method: GET
+        name: listmessages
+        description: Google Gmail List messages
+        call: openapi-gmail.listmessages
+        with:
+          userId: rest.userId
+          maxResults: rest.maxResults
+          pageToken: rest.pageToken
+          q: rest.q
+          labelIds: rest.labelIds
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: insertmessage
+        description: Google Gmail Insert message
+        call: openapi-gmail.insertmessage
+        with:
+          userId: rest.userId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/messages/send
+      name: gmail-v1-users-userid-messages-send
+      description: REST surface for gmail-v1-users-userId-messages-send.
+      operations:
+      - method: POST
+        name: sendmessage
+        description: Google Gmail Send message
+        call: openapi-gmail.sendmessage
+        with:
+          userId: rest.userId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/messages/{id}
+      name: gmail-v1-users-userid-messages-id
+      description: REST surface for gmail-v1-users-userId-messages-id.
+      operations:
+      - method: GET
+        name: getmessage
+        description: Google Gmail Get message
+        call: openapi-gmail.getmessage
+        with:
+          userId: rest.userId
+          id: rest.id
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletemessage
+        description: Google Gmail Delete message
+        call: openapi-gmail.deletemessage
+        with:
+          userId: rest.userId
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/messages/{id}/modify
+      name: gmail-v1-users-userid-messages-id-modify
+      description: REST surface for gmail-v1-users-userId-messages-id-modify.
+      operations:
+      - method: POST
+        name: modifymessage
+        description: Google Gmail Modify message
+        call: openapi-gmail.modifymessage
+        with:
+          userId: rest.userId
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/messages/{id}/trash
+      name: gmail-v1-users-userid-messages-id-trash
+      description: REST surface for gmail-v1-users-userId-messages-id-trash.
+      operations:
+      - method: POST
+        name: trashmessage
+        description: Google Gmail Trash message
+        call: openapi-gmail.trashmessage
+        with:
+          userId: rest.userId
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/messages/{id}/untrash
+      name: gmail-v1-users-userid-messages-id-untrash
+      description: REST surface for gmail-v1-users-userId-messages-id-untrash.
+      operations:
+      - method: POST
+        name: untrashmessage
+        description: Google Gmail Untrash message
+        call: openapi-gmail.untrashmessage
+        with:
+          userId: rest.userId
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/profile
+      name: gmail-v1-users-userid-profile
+      description: REST surface for gmail-v1-users-userId-profile.
+      operations:
+      - method: GET
+        name: getuserprofile
+        description: Google Gmail Get user profile
+        call: openapi-gmail.getuserprofile
+        with:
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/autoforwarding
+      name: gmail-v1-users-userid-settings-autoforwarding
+      description: REST surface for gmail-v1-users-userId-settings-autoForwarding.
+      operations:
+      - method: GET
+        name: getautoforwarding
+        description: Google Gmail Get auto-forwarding settings
+        call: openapi-gmail.getautoforwarding
+        with:
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/filters
+      name: gmail-v1-users-userid-settings-filters
+      description: REST surface for gmail-v1-users-userId-settings-filters.
+      operations:
+      - method: GET
+        name: listfilters
+        description: Google Gmail List filters
+        call: openapi-gmail.listfilters
+        with:
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createfilter
+        description: Google Gmail Create filter
+        call: openapi-gmail.createfilter
+        with:
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/stop
+      name: gmail-v1-users-userid-stop
+      description: REST surface for gmail-v1-users-userId-stop.
+      operations:
+      - method: POST
+        name: stopmailboxwatch
+        description: Google Gmail Stop watching mailbox
+        call: openapi-gmail.stopmailboxwatch
+        with:
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/threads
+      name: gmail-v1-users-userid-threads
+      description: REST surface for gmail-v1-users-userId-threads.
+      operations:
+      - method: GET
+        name: listthreads
+        description: Google Gmail List threads
+        call: openapi-gmail.listthreads
+        with:
+          userId: rest.userId
+          maxResults: rest.maxResults
+          pageToken: rest.pageToken
+          q: rest.q
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/threads/{id}
+      name: gmail-v1-users-userid-threads-id
+      description: REST surface for gmail-v1-users-userId-threads-id.
+      operations:
+      - method: GET
+        name: getthread
+        description: Google Gmail Get thread
+        call: openapi-gmail.getthread
+        with:
+          userId: rest.userId
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletethread
+        description: Google Gmail Delete thread
+        call: openapi-gmail.deletethread
+        with:
+          userId: rest.userId
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/watch
+      name: gmail-v1-users-userid-watch
+      description: REST surface for gmail-v1-users-userId-watch.
+      operations:
+      - method: POST
+        name: watchmailbox
+        description: Google Gmail Watch mailbox
+        call: openapi-gmail.watchmailbox
+        with:
+          userId: rest.userId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: openapi-gmail-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Gmail API — Gmail. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: google-gmail-list-drafts
+      description: Google Gmail List drafts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: openapi-gmail.listdrafts
+      with:
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-create-draft
+      description: Google Gmail Create draft
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: openapi-gmail.createdraft
+      with:
+        userId: tools.userId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-send-draft
+      description: Google Gmail Send draft
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: openapi-gmail.senddraft
+      with:
+        userId: tools.userId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-get-draft
+      description: Google Gmail Get draft
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: openapi-gmail.getdraft
+      with:
+        userId: tools.userId
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-update-draft
+      description: Google Gmail Update draft
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: openapi-gmail.updatedraft
+      with:
+        userId: tools.userId
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-delete-draft
+      description: Google Gmail Delete draft
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: openapi-gmail.deletedraft
+      with:
+        userId: tools.userId
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-list-history
+      description: Google Gmail List history
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: openapi-gmail.listhistory
+      with:
+        userId: tools.userId
+        startHistoryId: tools.startHistoryId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-list-labels
+      description: Google Gmail List labels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: openapi-gmail.listlabels
+      with:
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-create-label
+      description: Google Gmail Create label
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: openapi-gmail.createlabel
+      with:
+        userId: tools.userId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-get-label
+      description: Google Gmail Get label
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: openapi-gmail.getlabel
+      with:
+        userId: tools.userId
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-update-label
+      description: Google Gmail Update label
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: openapi-gmail.updatelabel
+      with:
+        userId: tools.userId
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-delete-label
+      description: Google Gmail Delete label
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: openapi-gmail.deletelabel
+      with:
+        userId: tools.userId
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-list-messages
+      description: Google Gmail List messages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: openapi-gmail.listmessages
+      with:
+        userId: tools.userId
+        maxResults: tools.maxResults
+        pageToken: tools.pageToken
+        q: tools.q
+        labelIds: tools.labelIds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-insert-message
+      description: Google Gmail Insert message
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: openapi-gmail.insertmessage
+      with:
+        userId: tools.userId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-send-message
+      description: Google Gmail Send message
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: openapi-gmail.sendmessage
+      with:
+        userId: tools.userId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-get-message
+      description: Google Gmail Get message
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: openapi-gmail.getmessage
+      with:
+        userId: tools.userId
+        id: tools.id
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-delete-message
+      description: Google Gmail Delete message
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: openapi-gmail.deletemessage
+      with:
+        userId: tools.userId
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-modify-message
+      description: Google Gmail Modify message
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: openapi-gmail.modifymessage
+      with:
+        userId: tools.userId
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-trash-message
+      description: Google Gmail Trash message
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: openapi-gmail.trashmessage
+      with:
+        userId: tools.userId
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-untrash-message
+      description: Google Gmail Untrash message
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: openapi-gmail.untrashmessage
+      with:
+        userId: tools.userId
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-get-user-profile
+      description: Google Gmail Get user profile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: openapi-gmail.getuserprofile
+      with:
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-get-auto-forwarding
+      description: Google Gmail Get auto-forwarding settings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: openapi-gmail.getautoforwarding
+      with:
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-list-filters
+      description: Google Gmail List filters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: openapi-gmail.listfilters
+      with:
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-create-filter
+      description: Google Gmail Create filter
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: openapi-gmail.createfilter
+      with:
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-stop-watching-mailbox
+      description: Google Gmail Stop watching mailbox
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: openapi-gmail.stopmailboxwatch
+      with:
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-list-threads
+      description: Google Gmail List threads
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: openapi-gmail.listthreads
+      with:
+        userId: tools.userId
+        maxResults: tools.maxResults
+        pageToken: tools.pageToken
+        q: tools.q
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-get-thread
+      description: Google Gmail Get thread
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: openapi-gmail.getthread
+      with:
+        userId: tools.userId
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-delete-thread
+      description: Google Gmail Delete thread
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: openapi-gmail.deletethread
+      with:
+        userId: tools.userId
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-gmail-watch-mailbox
+      description: Google Gmail Watch mailbox
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: openapi-gmail.watchmailbox
+      with:
+        userId: tools.userId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
