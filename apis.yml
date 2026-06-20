@@ -5,7 +5,7 @@ description: >-
   access to Gmail mailboxes, supporting message sending, drafting, organizing with labels, managing settings, and push
   notifications for mailbox changes. The API uses OAuth 2.0 for authorization and supports both user and service account
   authentication for Google Workspace domains.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/google-gmail/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
