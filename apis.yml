@@ -49,6 +49,10 @@ apis:
       - type: JSONLD
         url: json-ld/json-ld.jsonld
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-gmail-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-gmail-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/googleworkspace
   - type: Portal
@@ -71,6 +75,8 @@ common:
     url: https://developers.google.com/workspace/gmail/api/support
   - type: JSONLD
     url: json-ld/json-ld.jsonld
+  - url: https://blog.google/products/gmail/rss/
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
