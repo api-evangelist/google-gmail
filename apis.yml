@@ -49,6 +49,8 @@ apis:
       - type: JSONLD
         url: json-ld/json-ld.jsonld
 common:
+  - type: AgenticAccess
+    url: agentic-access/google-gmail-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/google-gmail-vulnerability-disclosure.yml
   - type: DomainSecurity
