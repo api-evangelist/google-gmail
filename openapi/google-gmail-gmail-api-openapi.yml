@@ -1,17 +1,15 @@
 openapi: 3.1.0
 info:
   title: Google Gmail API
-  description: >-
-    The Gmail API lets you view and manage Gmail mailbox data like threads,
-    messages, and labels. It provides RESTful access to Gmail mailboxes
-    including message sending, drafting, organizing with labels, managing
-    settings, and push notifications for mailbox changes.
+  description: The Gmail API lets you view and manage Gmail mailbox data like threads, messages, and labels. It provides RESTful access to Gmail mailboxes including message sending, drafting, organizing with labels, managing settings, and push notifications for mailbox changes.
   version: v1
   contact:
     name: Google
     url: https://developers.google.com/workspace/gmail/api/guides
 servers:
-  - url: https://gmail.googleapis.com
+- url: https://gmail.googleapis.com
+tags:
+- name: Gmail
 paths:
   /gmail/v1/users/{userId}/profile:
     get:
@@ -19,11 +17,11 @@ paths:
       summary: Google Gmail Get user profile
       description: Gets the current user's Gmail profile.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -32,36 +30,36 @@ paths:
               schema:
                 $ref: '#/components/schemas/Profile'
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/messages:
     get:
       operationId: listMessages
       summary: Google Gmail List messages
       description: Lists the messages in the user's mailbox.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: maxResults
+        in: query
+        schema:
+          type: integer
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: q
+        in: query
+        schema:
+          type: string
+      - name: labelIds
+        in: query
+        schema:
+          type: array
+          items:
             type: string
-        - name: maxResults
-          in: query
-          schema:
-            type: integer
-        - name: pageToken
-          in: query
-          schema:
-            type: string
-        - name: q
-          in: query
-          schema:
-            type: string
-        - name: labelIds
-          in: query
-          schema:
-            type: array
-            items:
-              type: string
       responses:
         '200':
           description: Successful response
@@ -70,17 +68,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListMessagesResponse'
       tags:
-        - Gmail
+      - Gmail
     post:
       operationId: insertMessage
       summary: Google Gmail Insert message
       description: Directly inserts a message into the user's mailbox.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -94,28 +92,32 @@ paths:
               schema:
                 $ref: '#/components/schemas/Message'
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/messages/{id}:
     get:
       operationId: getMessage
       summary: Google Gmail Get message
       description: Gets the specified message.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: format
-          in: query
-          schema:
-            type: string
-            enum: [minimal, full, raw, metadata]
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: format
+        in: query
+        schema:
+          type: string
+          enum:
+          - minimal
+          - full
+          - raw
+          - metadata
       responses:
         '200':
           description: Successful response
@@ -124,38 +126,38 @@ paths:
               schema:
                 $ref: '#/components/schemas/Message'
       tags:
-        - Gmail
+      - Gmail
     delete:
       operationId: deleteMessage
       summary: Google Gmail Delete message
       description: Immediately and permanently deletes the specified message.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '204':
           description: Successful deletion
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/messages/send:
     post:
       operationId: sendMessage
       summary: Google Gmail Send message
       description: Sends the specified message to the recipients.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -169,23 +171,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/Message'
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/messages/{id}/modify:
     post:
       operationId: modifyMessage
       summary: Google Gmail Modify message
       description: Modifies the labels on the specified message.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -199,23 +201,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/Message'
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/messages/{id}/trash:
     post:
       operationId: trashMessage
       summary: Google Gmail Trash message
       description: Moves the specified message to the trash.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -224,23 +226,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/Message'
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/messages/{id}/untrash:
     post:
       operationId: untrashMessage
       summary: Google Gmail Untrash message
       description: Removes the specified message from the trash.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -249,18 +251,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/Message'
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/labels:
     get:
       operationId: listLabels
       summary: Google Gmail List labels
       description: Lists all labels in the user's mailbox.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -269,17 +271,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListLabelsResponse'
       tags:
-        - Gmail
+      - Gmail
     post:
       operationId: createLabel
       summary: Google Gmail Create label
       description: Creates a new label.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -293,23 +295,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/Label'
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/labels/{id}:
     get:
       operationId: getLabel
       summary: Google Gmail Get label
       description: Gets the specified label.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -318,22 +320,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/Label'
       tags:
-        - Gmail
+      - Gmail
     put:
       operationId: updateLabel
       summary: Google Gmail Update label
       description: Updates the specified label.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -347,50 +349,50 @@ paths:
               schema:
                 $ref: '#/components/schemas/Label'
       tags:
-        - Gmail
+      - Gmail
     delete:
       operationId: deleteLabel
       summary: Google Gmail Delete label
       description: Immediately and permanently deletes the specified label.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '204':
           description: Successful deletion
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/threads:
     get:
       operationId: listThreads
       summary: Google Gmail List threads
       description: Lists the threads in the user's mailbox.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: maxResults
-          in: query
-          schema:
-            type: integer
-        - name: pageToken
-          in: query
-          schema:
-            type: string
-        - name: q
-          in: query
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: maxResults
+        in: query
+        schema:
+          type: integer
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: q
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -399,23 +401,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListThreadsResponse'
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/threads/{id}:
     get:
       operationId: getThread
       summary: Google Gmail Get thread
       description: Gets the specified thread.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -424,38 +426,38 @@ paths:
               schema:
                 $ref: '#/components/schemas/Thread'
       tags:
-        - Gmail
+      - Gmail
     delete:
       operationId: deleteThread
       summary: Google Gmail Delete thread
       description: Immediately and permanently deletes the specified thread.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '204':
           description: Successful deletion
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/drafts:
     get:
       operationId: listDrafts
       summary: Google Gmail List drafts
       description: Lists the drafts in the user's mailbox.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -464,17 +466,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListDraftsResponse'
       tags:
-        - Gmail
+      - Gmail
     post:
       operationId: createDraft
       summary: Google Gmail Create draft
       description: Creates a new draft with the DRAFT label.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -488,23 +490,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/Draft'
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/drafts/{id}:
     get:
       operationId: getDraft
       summary: Google Gmail Get draft
       description: Gets the specified draft.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -513,22 +515,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/Draft'
       tags:
-        - Gmail
+      - Gmail
     put:
       operationId: updateDraft
       summary: Google Gmail Update draft
       description: Replaces a draft's content.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -542,38 +544,38 @@ paths:
               schema:
                 $ref: '#/components/schemas/Draft'
       tags:
-        - Gmail
+      - Gmail
     delete:
       operationId: deleteDraft
       summary: Google Gmail Delete draft
       description: Immediately and permanently deletes the specified draft.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '204':
           description: Successful deletion
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/drafts/send:
     post:
       operationId: sendDraft
       summary: Google Gmail Send draft
       description: Sends the specified existing draft to the recipients.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -587,23 +589,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/Message'
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/history:
     get:
       operationId: listHistory
       summary: Google Gmail List history
       description: Lists the history of all changes to the given mailbox.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: startHistoryId
-          in: query
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: startHistoryId
+        in: query
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -612,18 +614,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListHistoryResponse'
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/watch:
     post:
       operationId: watchMailbox
       summary: Google Gmail Watch mailbox
       description: Set up or update a push notification watch on the given user mailbox.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -637,83 +639,72 @@ paths:
               schema:
                 $ref: '#/components/schemas/WatchResponse'
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/stop:
     post:
       operationId: stopMailboxWatch
       summary: Google Gmail Stop watching mailbox
       description: Stop receiving push notifications for the given user mailbox.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '204':
           description: Successful response
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/settings/autoForwarding:
     get:
       operationId: getAutoForwarding
       summary: Google Gmail Get auto-forwarding settings
       description: Gets the auto-forwarding setting for the specified account.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
       tags:
-        - Gmail
+      - Gmail
   /gmail/v1/users/{userId}/settings/filters:
     get:
       operationId: listFilters
       summary: Google Gmail List filters
       description: Lists the message filters of a Gmail user.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
       tags:
-        - Gmail
+      - Gmail
     post:
       operationId: createFilter
       summary: Google Gmail Create filter
       description: Creates a filter.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
       tags:
-        - Gmail
+      - Gmail
 components:
   schemas:
-    Profile:
-      type: object
-      properties:
-        emailAddress:
-          type: string
-        messagesTotal:
-          type: integer
-        threadsTotal:
-          type: integer
-        historyId:
-          type: string
     Message:
       type: object
       properties:
@@ -735,17 +726,6 @@ components:
           type: integer
         raw:
           type: string
-    ListMessagesResponse:
-      type: object
-      properties:
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
-        nextPageToken:
-          type: string
-        resultSizeEstimate:
-          type: integer
     ModifyMessageRequest:
       type: object
       properties:
@@ -757,6 +737,31 @@ components:
           type: array
           items:
             type: string
+    ListMessagesResponse:
+      type: object
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+        nextPageToken:
+          type: string
+        resultSizeEstimate:
+          type: integer
+    WatchRequest:
+      type: object
+      properties:
+        labelIds:
+          type: array
+          items:
+            type: string
+        labelFilterAction:
+          type: string
+          enum:
+          - include
+          - exclude
+        topicName:
+          type: string
     Label:
       type: object
       properties:
@@ -770,14 +775,9 @@ components:
           type: string
         type:
           type: string
-          enum: [system, user]
-    ListLabelsResponse:
-      type: object
-      properties:
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Label'
+          enum:
+          - system
+          - user
     Thread:
       type: object
       properties:
@@ -791,35 +791,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Message'
-    ListThreadsResponse:
-      type: object
-      properties:
-        threads:
-          type: array
-          items:
-            $ref: '#/components/schemas/Thread'
-        nextPageToken:
-          type: string
-        resultSizeEstimate:
-          type: integer
-    Draft:
-      type: object
-      properties:
-        id:
-          type: string
-        message:
-          $ref: '#/components/schemas/Message'
-    ListDraftsResponse:
-      type: object
-      properties:
-        drafts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Draft'
-        nextPageToken:
-          type: string
-        resultSizeEstimate:
-          type: integer
     ListHistoryResponse:
       type: object
       properties:
@@ -831,18 +802,53 @@ components:
           type: string
         historyId:
           type: string
-    WatchRequest:
+    ListDraftsResponse:
       type: object
       properties:
-        labelIds:
+        drafts:
           type: array
           items:
-            type: string
-        labelFilterAction:
+            $ref: '#/components/schemas/Draft'
+        nextPageToken:
           type: string
-          enum: [include, exclude]
-        topicName:
+        resultSizeEstimate:
+          type: integer
+    ListLabelsResponse:
+      type: object
+      properties:
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+    Draft:
+      type: object
+      properties:
+        id:
           type: string
+        message:
+          $ref: '#/components/schemas/Message'
+    Profile:
+      type: object
+      properties:
+        emailAddress:
+          type: string
+        messagesTotal:
+          type: integer
+        threadsTotal:
+          type: integer
+        historyId:
+          type: string
+    ListThreadsResponse:
+      type: object
+      properties:
+        threads:
+          type: array
+          items:
+            $ref: '#/components/schemas/Thread'
+        nextPageToken:
+          type: string
+        resultSizeEstimate:
+          type: integer
     WatchResponse:
       type: object
       properties:
@@ -850,5 +856,3 @@ components:
           type: string
         expiration:
           type: string
-tags:
-  - name: Gmail
