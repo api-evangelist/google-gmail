@@ -1,0 +1,3202 @@
+{
+  "info": {
+    "_postman_id": "c8195571-cac6-4a1d-a824-be98d77287b0",
+    "name": "Google Gmail API",
+    "description": "The Gmail API lets you view and manage Gmail mailbox data like threads, messages, and labels. It provides RESTful access to Gmail mailboxes including message sending, drafting, organizing with labels, managing settings, and push notifications for mailbox changes.\n\nContact Support:\n Name: Google",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:49:14.000Z",
+    "updatedAt": "2026-07-28T01:49:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c8195571-cac6-4a1d-a824-be98d77287b0"
+  },
+  "item": [
+    {
+      "name": "gmail",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "users",
+              "item": [
+                {
+                  "name": "{userId}",
+                  "item": [
+                    {
+                      "name": "profile",
+                      "item": [
+                        {
+                          "name": "Google Gmail Get user profile",
+                          "id": "400fa154-f87a-40e2-acbe-124e6ff76e37",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gmail/v1/users/:userId/profile",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gmail",
+                                "v1",
+                                "users",
+                                ":userId",
+                                "profile"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a22acd80-363d-469b-a536-31ac62e74ab7",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Gets the current user's Gmail profile."
+                          },
+                          "response": [
+                            {
+                              "id": "e9f96fd5-a8ce-4abb-b912-cb3915b28dc5",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/profile",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "profile"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"emailAddress\": \"<string>\",\n  \"messagesTotal\": \"<integer>\",\n  \"threadsTotal\": \"<integer>\",\n  \"historyId\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-e9f96fd5-a8ce-4abb-b912-cb3915b28dc5"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-400fa154-f87a-40e2-acbe-124e6ff76e37"
+                        }
+                      ],
+                      "id": "8fdf5110-0b6d-469c-b89a-9993b40ad740",
+                      "createdAt": "2026-07-28T01:49:14.000Z",
+                      "updatedAt": "2026-07-28T01:49:14.000Z",
+                      "uid": "35240-8fdf5110-0b6d-469c-b89a-9993b40ad740"
+                    },
+                    {
+                      "name": "messages",
+                      "item": [
+                        {
+                          "name": "{id}",
+                          "item": [
+                            {
+                              "name": "modify",
+                              "item": [
+                                {
+                                  "name": "Google Gmail Modify message",
+                                  "id": "c30ba265-f17b-4e30-a408-891aeb4433c1",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"addLabelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"removeLabelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/messages/:id/modify",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "messages",
+                                        ":id",
+                                        "modify"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "1eb5a06d-9167-4aef-a698-0e21b5632348",
+                                          "key": "userId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "730c828b-5bdc-46e6-84f0-8b34bb73670a",
+                                          "key": "id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Modifies the labels on the specified message."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "c6dd3972-8d6e-4826-a27e-b3654ff155a2",
+                                      "name": "Successful response",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"addLabelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"removeLabelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/gmail/v1/users/:userId/messages/:id/modify",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "gmail",
+                                            "v1",
+                                            "users",
+                                            ":userId",
+                                            "messages",
+                                            ":id",
+                                            "modify"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "userId"
+                                            },
+                                            {
+                                              "key": "id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"id\": \"<string>\",\n  \"threadId\": \"<string>\",\n  \"labelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"snippet\": \"<string>\",\n  \"historyId\": \"<string>\",\n  \"internalDate\": \"<string>\",\n  \"sizeEstimate\": \"<integer>\",\n  \"raw\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:49:14.000Z",
+                                      "updatedAt": "2026-07-28T01:49:14.000Z",
+                                      "uid": "35240-c6dd3972-8d6e-4826-a27e-b3654ff155a2"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-c30ba265-f17b-4e30-a408-891aeb4433c1"
+                                }
+                              ],
+                              "id": "1ffda2d6-3bae-427d-843d-39840f3a2e6a",
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-1ffda2d6-3bae-427d-843d-39840f3a2e6a"
+                            },
+                            {
+                              "name": "trash",
+                              "item": [
+                                {
+                                  "name": "Google Gmail Trash message",
+                                  "id": "f96db655-2297-4b23-a710-9495c9d09a9c",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/messages/:id/trash",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "messages",
+                                        ":id",
+                                        "trash"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "8f3c477f-4922-4525-a52c-2ff0ce05bc97",
+                                          "key": "userId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "c228f933-bce2-4911-87fa-3a4167420e1f",
+                                          "key": "id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Moves the specified message to the trash."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "12c7191e-f1af-4c67-aadf-9784cfc46293",
+                                      "name": "Successful response",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/gmail/v1/users/:userId/messages/:id/trash",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "gmail",
+                                            "v1",
+                                            "users",
+                                            ":userId",
+                                            "messages",
+                                            ":id",
+                                            "trash"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "userId"
+                                            },
+                                            {
+                                              "key": "id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"id\": \"<string>\",\n  \"threadId\": \"<string>\",\n  \"labelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"snippet\": \"<string>\",\n  \"historyId\": \"<string>\",\n  \"internalDate\": \"<string>\",\n  \"sizeEstimate\": \"<integer>\",\n  \"raw\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:49:14.000Z",
+                                      "updatedAt": "2026-07-28T01:49:14.000Z",
+                                      "uid": "35240-12c7191e-f1af-4c67-aadf-9784cfc46293"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-f96db655-2297-4b23-a710-9495c9d09a9c"
+                                }
+                              ],
+                              "id": "367cdaba-59e8-4cc5-938a-8c10fb3385d9",
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-367cdaba-59e8-4cc5-938a-8c10fb3385d9"
+                            },
+                            {
+                              "name": "untrash",
+                              "item": [
+                                {
+                                  "name": "Google Gmail Untrash message",
+                                  "id": "66c19a77-58ce-4394-aa1c-31af2ccfddf2",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/messages/:id/untrash",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "messages",
+                                        ":id",
+                                        "untrash"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "d57d670a-af9a-4479-b34a-3f3c5ebec1ae",
+                                          "key": "userId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "be7e37fe-cf6b-45d4-809c-ce9a2ab93793",
+                                          "key": "id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Removes the specified message from the trash."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "cc7b75f0-8a6b-4c93-9362-8b1eb4daadd9",
+                                      "name": "Successful response",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/gmail/v1/users/:userId/messages/:id/untrash",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "gmail",
+                                            "v1",
+                                            "users",
+                                            ":userId",
+                                            "messages",
+                                            ":id",
+                                            "untrash"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "userId"
+                                            },
+                                            {
+                                              "key": "id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"id\": \"<string>\",\n  \"threadId\": \"<string>\",\n  \"labelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"snippet\": \"<string>\",\n  \"historyId\": \"<string>\",\n  \"internalDate\": \"<string>\",\n  \"sizeEstimate\": \"<integer>\",\n  \"raw\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:49:14.000Z",
+                                      "updatedAt": "2026-07-28T01:49:14.000Z",
+                                      "uid": "35240-cc7b75f0-8a6b-4c93-9362-8b1eb4daadd9"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-66c19a77-58ce-4394-aa1c-31af2ccfddf2"
+                                }
+                              ],
+                              "id": "60c3ab5b-03fd-400e-b88f-d40e60904715",
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-60c3ab5b-03fd-400e-b88f-d40e60904715"
+                            },
+                            {
+                              "name": "Google Gmail Get message",
+                              "id": "d49f082a-8411-4063-92cf-f587ca858613",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/messages/:id?format=raw",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "messages",
+                                    ":id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "format",
+                                      "value": "raw"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "e4f1748d-ad0e-43e7-9358-4a23cf1177e7",
+                                      "key": "userId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "140704ae-5d01-4170-9313-002b0ac49fad",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Gets the specified message."
+                              },
+                              "response": [
+                                {
+                                  "id": "eddd6f20-2f9d-451d-958f-c7bf9973b85f",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/messages/:id?format=raw",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "messages",
+                                        ":id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "format",
+                                          "value": "raw"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "userId"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"threadId\": \"<string>\",\n  \"labelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"snippet\": \"<string>\",\n  \"historyId\": \"<string>\",\n  \"internalDate\": \"<string>\",\n  \"sizeEstimate\": \"<integer>\",\n  \"raw\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-eddd6f20-2f9d-451d-958f-c7bf9973b85f"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-d49f082a-8411-4063-92cf-f587ca858613"
+                            },
+                            {
+                              "name": "Google Gmail Delete message",
+                              "id": "9a1a4087-e008-4d2f-b1e4-6ff3694d413b",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/messages/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "messages",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "0bb9596e-d20d-4b2a-9468-084289f7b92d",
+                                      "key": "userId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "cee48fd3-b58a-463c-a67d-273ce0ba45e7",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Immediately and permanently deletes the specified message."
+                              },
+                              "response": [
+                                {
+                                  "id": "e98ba074-101e-4991-a9ea-5a6959971ef4",
+                                  "name": "Successful deletion",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/messages/:id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "messages",
+                                        ":id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "userId"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-e98ba074-101e-4991-a9ea-5a6959971ef4"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-9a1a4087-e008-4d2f-b1e4-6ff3694d413b"
+                            }
+                          ],
+                          "id": "63d484af-fa9d-4bbb-98bf-f8650af10629",
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-63d484af-fa9d-4bbb-98bf-f8650af10629"
+                        },
+                        {
+                          "name": "send",
+                          "item": [
+                            {
+                              "name": "Google Gmail Send message",
+                              "id": "cd8477e6-1eca-4e46-8694-fb8eaa22d97e",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"id\": \"<string>\",\n  \"threadId\": \"<string>\",\n  \"labelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"snippet\": \"<string>\",\n  \"historyId\": \"<string>\",\n  \"internalDate\": \"<string>\",\n  \"sizeEstimate\": \"<integer>\",\n  \"raw\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/messages/send",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "messages",
+                                    "send"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "d88968e4-4e15-4909-a0b4-bb8ed195e950",
+                                      "key": "userId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Sends the specified message to the recipients."
+                              },
+                              "response": [
+                                {
+                                  "id": "28c37a09-a430-45d6-adc1-71c055bdfef2",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"id\": \"<string>\",\n  \"threadId\": \"<string>\",\n  \"labelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"snippet\": \"<string>\",\n  \"historyId\": \"<string>\",\n  \"internalDate\": \"<string>\",\n  \"sizeEstimate\": \"<integer>\",\n  \"raw\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/messages/send",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "messages",
+                                        "send"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "userId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"threadId\": \"<string>\",\n  \"labelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"snippet\": \"<string>\",\n  \"historyId\": \"<string>\",\n  \"internalDate\": \"<string>\",\n  \"sizeEstimate\": \"<integer>\",\n  \"raw\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-28c37a09-a430-45d6-adc1-71c055bdfef2"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-cd8477e6-1eca-4e46-8694-fb8eaa22d97e"
+                            }
+                          ],
+                          "id": "000a35aa-4e7c-4e75-b7a4-035f083b5139",
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-000a35aa-4e7c-4e75-b7a4-035f083b5139"
+                        },
+                        {
+                          "name": "Google Gmail List messages",
+                          "id": "ffc86a9a-6930-46f9-a3b5-efd43d7aab1b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gmail/v1/users/:userId/messages?maxResults=<integer>&pageToken=<string>&q=<string>&labelIds=<string>&labelIds=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gmail",
+                                "v1",
+                                "users",
+                                ":userId",
+                                "messages"
+                              ],
+                              "query": [
+                                {
+                                  "key": "maxResults",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "q",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "labelIds",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "labelIds",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e7cd06fb-7909-4068-ba21-3d95c71c3d26",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Lists the messages in the user's mailbox."
+                          },
+                          "response": [
+                            {
+                              "id": "82ec2430-12c3-4027-8b4e-f9ecc4d6a395",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/messages?maxResults=<integer>&pageToken=<string>&q=<string>&labelIds=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "messages"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "maxResults",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "pageToken",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "q",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "labelIds",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"messages\": [\n    {\n      \"id\": \"<string>\",\n      \"threadId\": \"<string>\",\n      \"labelIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"snippet\": \"<string>\",\n      \"historyId\": \"<string>\",\n      \"internalDate\": \"<string>\",\n      \"sizeEstimate\": \"<integer>\",\n      \"raw\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"threadId\": \"<string>\",\n      \"labelIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"snippet\": \"<string>\",\n      \"historyId\": \"<string>\",\n      \"internalDate\": \"<string>\",\n      \"sizeEstimate\": \"<integer>\",\n      \"raw\": \"<string>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\",\n  \"resultSizeEstimate\": \"<integer>\"\n}",
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-82ec2430-12c3-4027-8b4e-f9ecc4d6a395"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-ffc86a9a-6930-46f9-a3b5-efd43d7aab1b"
+                        },
+                        {
+                          "name": "Google Gmail Insert message",
+                          "id": "b86e6641-3719-40a3-93c8-3a66711a9ae8",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"threadId\": \"<string>\",\n  \"labelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"snippet\": \"<string>\",\n  \"historyId\": \"<string>\",\n  \"internalDate\": \"<string>\",\n  \"sizeEstimate\": \"<integer>\",\n  \"raw\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/gmail/v1/users/:userId/messages",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gmail",
+                                "v1",
+                                "users",
+                                ":userId",
+                                "messages"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f14391f6-022f-4cf4-b959-5c56a4ddbaa9",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Directly inserts a message into the user's mailbox."
+                          },
+                          "response": [
+                            {
+                              "id": "a4b31606-e4f9-493b-b24b-85e9240400b3",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"id\": \"<string>\",\n  \"threadId\": \"<string>\",\n  \"labelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"snippet\": \"<string>\",\n  \"historyId\": \"<string>\",\n  \"internalDate\": \"<string>\",\n  \"sizeEstimate\": \"<integer>\",\n  \"raw\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/messages",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "messages"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"threadId\": \"<string>\",\n  \"labelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"snippet\": \"<string>\",\n  \"historyId\": \"<string>\",\n  \"internalDate\": \"<string>\",\n  \"sizeEstimate\": \"<integer>\",\n  \"raw\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-a4b31606-e4f9-493b-b24b-85e9240400b3"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-b86e6641-3719-40a3-93c8-3a66711a9ae8"
+                        }
+                      ],
+                      "id": "64f95a7a-72b4-40bc-adc3-7ff24178e923",
+                      "createdAt": "2026-07-28T01:49:14.000Z",
+                      "updatedAt": "2026-07-28T01:49:14.000Z",
+                      "uid": "35240-64f95a7a-72b4-40bc-adc3-7ff24178e923"
+                    },
+                    {
+                      "name": "labels",
+                      "item": [
+                        {
+                          "name": "{id}",
+                          "item": [
+                            {
+                              "name": "Google Gmail Get label",
+                              "id": "f1a0ecca-1f17-40a8-b1c1-1a67d5bf33db",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/labels/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "labels",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "94abe295-1f2c-433f-8172-bc72a2244a8b",
+                                      "key": "userId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "292c26d3-1850-4b1a-8b4b-02e3a6b68681",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Gets the specified label."
+                              },
+                              "response": [
+                                {
+                                  "id": "30fca196-6ef7-477d-96ae-673184f48954",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/labels/:id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "labels",
+                                        ":id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "userId"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"messageListVisibility\": \"<string>\",\n  \"labelListVisibility\": \"<string>\",\n  \"type\": \"user\"\n}",
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-30fca196-6ef7-477d-96ae-673184f48954"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-f1a0ecca-1f17-40a8-b1c1-1a67d5bf33db"
+                            },
+                            {
+                              "name": "Google Gmail Update label",
+                              "id": "1af40043-1ae8-4f06-b7cd-43187ecd5d7b",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"messageListVisibility\": \"<string>\",\n  \"labelListVisibility\": \"<string>\",\n  \"type\": \"user\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/labels/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "labels",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "6aadd13d-c8b3-4f82-8d08-ec37815e1452",
+                                      "key": "userId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "ce72dd15-59c3-4907-9736-0f10962f7183",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Updates the specified label."
+                              },
+                              "response": [
+                                {
+                                  "id": "e9b12274-fa12-4d90-b6bc-79418894e999",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"messageListVisibility\": \"<string>\",\n  \"labelListVisibility\": \"<string>\",\n  \"type\": \"user\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/labels/:id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "labels",
+                                        ":id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "userId"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"messageListVisibility\": \"<string>\",\n  \"labelListVisibility\": \"<string>\",\n  \"type\": \"user\"\n}",
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-e9b12274-fa12-4d90-b6bc-79418894e999"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-1af40043-1ae8-4f06-b7cd-43187ecd5d7b"
+                            },
+                            {
+                              "name": "Google Gmail Delete label",
+                              "id": "06e0bd0b-887a-42f8-b0b3-c4399985dbe1",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/labels/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "labels",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "a781aff8-bbc5-4ccc-a38b-060c8f2b1d7a",
+                                      "key": "userId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "97e5b781-3e21-42d7-83e7-5fb28983e5f7",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Immediately and permanently deletes the specified label."
+                              },
+                              "response": [
+                                {
+                                  "id": "779e9c8c-81c2-48d1-8fce-14f4ba8f818e",
+                                  "name": "Successful deletion",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/labels/:id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "labels",
+                                        ":id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "userId"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-779e9c8c-81c2-48d1-8fce-14f4ba8f818e"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-06e0bd0b-887a-42f8-b0b3-c4399985dbe1"
+                            }
+                          ],
+                          "id": "895ed87a-1322-4892-b21c-7ca4dc57593e",
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-895ed87a-1322-4892-b21c-7ca4dc57593e"
+                        },
+                        {
+                          "name": "Google Gmail List labels",
+                          "id": "73c52651-2d0c-48a8-ad7d-79d105eb36e1",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gmail/v1/users/:userId/labels",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gmail",
+                                "v1",
+                                "users",
+                                ":userId",
+                                "labels"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "6fb85a48-2fb5-4b41-a073-30f992cceea0",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Lists all labels in the user's mailbox."
+                          },
+                          "response": [
+                            {
+                              "id": "170b184a-7037-4ee9-9e30-f9b6141f69b7",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/labels",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "labels"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"labels\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"messageListVisibility\": \"<string>\",\n      \"labelListVisibility\": \"<string>\",\n      \"type\": \"system\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"messageListVisibility\": \"<string>\",\n      \"labelListVisibility\": \"<string>\",\n      \"type\": \"user\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-170b184a-7037-4ee9-9e30-f9b6141f69b7"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-73c52651-2d0c-48a8-ad7d-79d105eb36e1"
+                        },
+                        {
+                          "name": "Google Gmail Create label",
+                          "id": "c1444658-9226-4019-83ed-e0b0dfbfb84d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"messageListVisibility\": \"<string>\",\n  \"labelListVisibility\": \"<string>\",\n  \"type\": \"user\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/gmail/v1/users/:userId/labels",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gmail",
+                                "v1",
+                                "users",
+                                ":userId",
+                                "labels"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "17037d76-3e89-4f22-a0b9-a54e0940460a",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Creates a new label."
+                          },
+                          "response": [
+                            {
+                              "id": "cc11c5a0-3d4b-4b85-b4e7-f2a5ff0bd96a",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"messageListVisibility\": \"<string>\",\n  \"labelListVisibility\": \"<string>\",\n  \"type\": \"user\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/labels",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "labels"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"messageListVisibility\": \"<string>\",\n  \"labelListVisibility\": \"<string>\",\n  \"type\": \"user\"\n}",
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-cc11c5a0-3d4b-4b85-b4e7-f2a5ff0bd96a"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-c1444658-9226-4019-83ed-e0b0dfbfb84d"
+                        }
+                      ],
+                      "id": "b01299e8-25db-46c2-abd8-1d8fe3020128",
+                      "createdAt": "2026-07-28T01:49:14.000Z",
+                      "updatedAt": "2026-07-28T01:49:14.000Z",
+                      "uid": "35240-b01299e8-25db-46c2-abd8-1d8fe3020128"
+                    },
+                    {
+                      "name": "threads",
+                      "item": [
+                        {
+                          "name": "{id}",
+                          "item": [
+                            {
+                              "name": "Google Gmail Get thread",
+                              "id": "249234ae-704f-467e-a1e1-51a674330a47",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/threads/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "threads",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "ee7c22fb-1b2c-4bc1-bcf4-3e930073a219",
+                                      "key": "userId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "6775bd21-91df-4ab8-aeb7-01a16d8fbd46",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Gets the specified thread."
+                              },
+                              "response": [
+                                {
+                                  "id": "ebbf4351-ed02-44df-86ce-61979c690456",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/threads/:id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "threads",
+                                        ":id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "userId"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"snippet\": \"<string>\",\n  \"historyId\": \"<string>\",\n  \"messages\": [\n    {\n      \"id\": \"<string>\",\n      \"threadId\": \"<string>\",\n      \"labelIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"snippet\": \"<string>\",\n      \"historyId\": \"<string>\",\n      \"internalDate\": \"<string>\",\n      \"sizeEstimate\": \"<integer>\",\n      \"raw\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"threadId\": \"<string>\",\n      \"labelIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"snippet\": \"<string>\",\n      \"historyId\": \"<string>\",\n      \"internalDate\": \"<string>\",\n      \"sizeEstimate\": \"<integer>\",\n      \"raw\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-ebbf4351-ed02-44df-86ce-61979c690456"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-249234ae-704f-467e-a1e1-51a674330a47"
+                            },
+                            {
+                              "name": "Google Gmail Delete thread",
+                              "id": "9d3c2b4f-78c5-4e84-a628-c50d4b6fd9e5",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/threads/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "threads",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "e48b0c3a-0cc5-48cb-b0cc-916dbf10c7f3",
+                                      "key": "userId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "bce41aa5-55f2-4a64-81d7-0ba51da80caf",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Immediately and permanently deletes the specified thread."
+                              },
+                              "response": [
+                                {
+                                  "id": "f1c9607b-5d4a-4325-adad-0afbd34d261b",
+                                  "name": "Successful deletion",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/threads/:id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "threads",
+                                        ":id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "userId"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-f1c9607b-5d4a-4325-adad-0afbd34d261b"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-9d3c2b4f-78c5-4e84-a628-c50d4b6fd9e5"
+                            }
+                          ],
+                          "id": "09a62487-3829-4890-bb95-d65b776ca8a3",
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-09a62487-3829-4890-bb95-d65b776ca8a3"
+                        },
+                        {
+                          "name": "Google Gmail List threads",
+                          "id": "501b34e9-fb56-4fb1-9e14-23b4be1609ac",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gmail/v1/users/:userId/threads?maxResults=<integer>&pageToken=<string>&q=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gmail",
+                                "v1",
+                                "users",
+                                ":userId",
+                                "threads"
+                              ],
+                              "query": [
+                                {
+                                  "key": "maxResults",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "q",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0c64ff0a-87f5-4ba2-86b7-795b3a685762",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Lists the threads in the user's mailbox."
+                          },
+                          "response": [
+                            {
+                              "id": "1bf8b78e-f4cb-4934-8d0e-058221ca8c23",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/threads?maxResults=<integer>&pageToken=<string>&q=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "threads"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "maxResults",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "pageToken",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "q",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"threads\": [\n    {\n      \"id\": \"<string>\",\n      \"snippet\": \"<string>\",\n      \"historyId\": \"<string>\",\n      \"messages\": [\n        {\n          \"id\": \"<string>\",\n          \"threadId\": \"<string>\",\n          \"labelIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"snippet\": \"<string>\",\n          \"historyId\": \"<string>\",\n          \"internalDate\": \"<string>\",\n          \"sizeEstimate\": \"<integer>\",\n          \"raw\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"threadId\": \"<string>\",\n          \"labelIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"snippet\": \"<string>\",\n          \"historyId\": \"<string>\",\n          \"internalDate\": \"<string>\",\n          \"sizeEstimate\": \"<integer>\",\n          \"raw\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"snippet\": \"<string>\",\n      \"historyId\": \"<string>\",\n      \"messages\": [\n        {\n          \"id\": \"<string>\",\n          \"threadId\": \"<string>\",\n          \"labelIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"snippet\": \"<string>\",\n          \"historyId\": \"<string>\",\n          \"internalDate\": \"<string>\",\n          \"sizeEstimate\": \"<integer>\",\n          \"raw\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"threadId\": \"<string>\",\n          \"labelIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"snippet\": \"<string>\",\n          \"historyId\": \"<string>\",\n          \"internalDate\": \"<string>\",\n          \"sizeEstimate\": \"<integer>\",\n          \"raw\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"nextPageToken\": \"<string>\",\n  \"resultSizeEstimate\": \"<integer>\"\n}",
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-1bf8b78e-f4cb-4934-8d0e-058221ca8c23"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-501b34e9-fb56-4fb1-9e14-23b4be1609ac"
+                        }
+                      ],
+                      "id": "81492ef5-37ba-4450-9c0a-c03c00c65f6e",
+                      "createdAt": "2026-07-28T01:49:14.000Z",
+                      "updatedAt": "2026-07-28T01:49:14.000Z",
+                      "uid": "35240-81492ef5-37ba-4450-9c0a-c03c00c65f6e"
+                    },
+                    {
+                      "name": "drafts",
+                      "item": [
+                        {
+                          "name": "{id}",
+                          "item": [
+                            {
+                              "name": "Google Gmail Get draft",
+                              "id": "3423e446-dec4-4825-8235-603b0b63aa3b",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/drafts/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "drafts",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "b702fccf-7535-4d61-bf9b-33280e028829",
+                                      "key": "userId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "51482f01-2ccb-4b74-a086-dec154453dbe",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Gets the specified draft."
+                              },
+                              "response": [
+                                {
+                                  "id": "49cb3217-be51-44e0-9a79-61cf0994f432",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/drafts/:id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "drafts",
+                                        ":id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "userId"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"message\": {\n    \"id\": \"<string>\",\n    \"threadId\": \"<string>\",\n    \"labelIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"snippet\": \"<string>\",\n    \"historyId\": \"<string>\",\n    \"internalDate\": \"<string>\",\n    \"sizeEstimate\": \"<integer>\",\n    \"raw\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-49cb3217-be51-44e0-9a79-61cf0994f432"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-3423e446-dec4-4825-8235-603b0b63aa3b"
+                            },
+                            {
+                              "name": "Google Gmail Update draft",
+                              "id": "74032460-3f50-46e3-9cc6-3086f6c67e64",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"id\": \"<string>\",\n  \"message\": {\n    \"id\": \"<string>\",\n    \"threadId\": \"<string>\",\n    \"labelIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"snippet\": \"<string>\",\n    \"historyId\": \"<string>\",\n    \"internalDate\": \"<string>\",\n    \"sizeEstimate\": \"<integer>\",\n    \"raw\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/drafts/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "drafts",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "f4fa8ab2-d63d-471d-befc-9e272e47700e",
+                                      "key": "userId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "62863412-f706-4af0-a430-c6443a28ef07",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Replaces a draft's content."
+                              },
+                              "response": [
+                                {
+                                  "id": "83a70ec9-b708-48ef-8f5f-4377b314ab8a",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"id\": \"<string>\",\n  \"message\": {\n    \"id\": \"<string>\",\n    \"threadId\": \"<string>\",\n    \"labelIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"snippet\": \"<string>\",\n    \"historyId\": \"<string>\",\n    \"internalDate\": \"<string>\",\n    \"sizeEstimate\": \"<integer>\",\n    \"raw\": \"<string>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/drafts/:id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "drafts",
+                                        ":id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "userId"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"message\": {\n    \"id\": \"<string>\",\n    \"threadId\": \"<string>\",\n    \"labelIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"snippet\": \"<string>\",\n    \"historyId\": \"<string>\",\n    \"internalDate\": \"<string>\",\n    \"sizeEstimate\": \"<integer>\",\n    \"raw\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-83a70ec9-b708-48ef-8f5f-4377b314ab8a"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-74032460-3f50-46e3-9cc6-3086f6c67e64"
+                            },
+                            {
+                              "name": "Google Gmail Delete draft",
+                              "id": "77710f31-4e9f-4bc4-885d-40d1d40de9ae",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/drafts/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "drafts",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "9604f5a3-b1f7-45a9-8544-730aa19663f1",
+                                      "key": "userId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "2f6b9bdc-b95a-4bcf-8abc-60aaf2e73574",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Immediately and permanently deletes the specified draft."
+                              },
+                              "response": [
+                                {
+                                  "id": "87d13328-c9ef-482d-bbdb-ebd8fe02e634",
+                                  "name": "Successful deletion",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/drafts/:id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "drafts",
+                                        ":id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "userId"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-87d13328-c9ef-482d-bbdb-ebd8fe02e634"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-77710f31-4e9f-4bc4-885d-40d1d40de9ae"
+                            }
+                          ],
+                          "id": "77b66f1e-e391-4a42-8a88-5d6ed391575b",
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-77b66f1e-e391-4a42-8a88-5d6ed391575b"
+                        },
+                        {
+                          "name": "send",
+                          "item": [
+                            {
+                              "name": "Google Gmail Send draft",
+                              "id": "bbe3b1ff-d837-42a7-aa11-b5dd1d06caaf",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"id\": \"<string>\",\n  \"message\": {\n    \"id\": \"<string>\",\n    \"threadId\": \"<string>\",\n    \"labelIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"snippet\": \"<string>\",\n    \"historyId\": \"<string>\",\n    \"internalDate\": \"<string>\",\n    \"sizeEstimate\": \"<integer>\",\n    \"raw\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/drafts/send",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "drafts",
+                                    "send"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "0be196d2-c53c-40be-9a62-e44517dff2b0",
+                                      "key": "userId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Sends the specified existing draft to the recipients."
+                              },
+                              "response": [
+                                {
+                                  "id": "bd052ae5-a6ae-4a8e-a93e-c029c33b4df0",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"id\": \"<string>\",\n  \"message\": {\n    \"id\": \"<string>\",\n    \"threadId\": \"<string>\",\n    \"labelIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"snippet\": \"<string>\",\n    \"historyId\": \"<string>\",\n    \"internalDate\": \"<string>\",\n    \"sizeEstimate\": \"<integer>\",\n    \"raw\": \"<string>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/drafts/send",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "drafts",
+                                        "send"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "userId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"threadId\": \"<string>\",\n  \"labelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"snippet\": \"<string>\",\n  \"historyId\": \"<string>\",\n  \"internalDate\": \"<string>\",\n  \"sizeEstimate\": \"<integer>\",\n  \"raw\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-bd052ae5-a6ae-4a8e-a93e-c029c33b4df0"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-bbe3b1ff-d837-42a7-aa11-b5dd1d06caaf"
+                            }
+                          ],
+                          "id": "3f6a8652-dd71-4971-aa6e-05b47eafb80e",
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-3f6a8652-dd71-4971-aa6e-05b47eafb80e"
+                        },
+                        {
+                          "name": "Google Gmail List drafts",
+                          "id": "c638a9a7-d7e9-4e1c-bfe7-6b732ae64137",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gmail/v1/users/:userId/drafts",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gmail",
+                                "v1",
+                                "users",
+                                ":userId",
+                                "drafts"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "08670ff9-19d8-4f24-938e-626bfa6eef27",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Lists the drafts in the user's mailbox."
+                          },
+                          "response": [
+                            {
+                              "id": "38e28d3c-21c0-47dc-b5d2-14e727ed62bd",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/drafts",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "drafts"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"drafts\": [\n    {\n      \"id\": \"<string>\",\n      \"message\": {\n        \"id\": \"<string>\",\n        \"threadId\": \"<string>\",\n        \"labelIds\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"snippet\": \"<string>\",\n        \"historyId\": \"<string>\",\n        \"internalDate\": \"<string>\",\n        \"sizeEstimate\": \"<integer>\",\n        \"raw\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"message\": {\n        \"id\": \"<string>\",\n        \"threadId\": \"<string>\",\n        \"labelIds\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"snippet\": \"<string>\",\n        \"historyId\": \"<string>\",\n        \"internalDate\": \"<string>\",\n        \"sizeEstimate\": \"<integer>\",\n        \"raw\": \"<string>\"\n      }\n    }\n  ],\n  \"nextPageToken\": \"<string>\",\n  \"resultSizeEstimate\": \"<integer>\"\n}",
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-38e28d3c-21c0-47dc-b5d2-14e727ed62bd"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-c638a9a7-d7e9-4e1c-bfe7-6b732ae64137"
+                        },
+                        {
+                          "name": "Google Gmail Create draft",
+                          "id": "87880af6-d21f-431c-b2ca-78ab904fbfed",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"message\": {\n    \"id\": \"<string>\",\n    \"threadId\": \"<string>\",\n    \"labelIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"snippet\": \"<string>\",\n    \"historyId\": \"<string>\",\n    \"internalDate\": \"<string>\",\n    \"sizeEstimate\": \"<integer>\",\n    \"raw\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/gmail/v1/users/:userId/drafts",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gmail",
+                                "v1",
+                                "users",
+                                ":userId",
+                                "drafts"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "cdd39b62-528e-4374-9233-948955dbff07",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Creates a new draft with the DRAFT label."
+                          },
+                          "response": [
+                            {
+                              "id": "41bc8228-a633-44a8-bfba-aa951894d418",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"id\": \"<string>\",\n  \"message\": {\n    \"id\": \"<string>\",\n    \"threadId\": \"<string>\",\n    \"labelIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"snippet\": \"<string>\",\n    \"historyId\": \"<string>\",\n    \"internalDate\": \"<string>\",\n    \"sizeEstimate\": \"<integer>\",\n    \"raw\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/drafts",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "drafts"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"message\": {\n    \"id\": \"<string>\",\n    \"threadId\": \"<string>\",\n    \"labelIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"snippet\": \"<string>\",\n    \"historyId\": \"<string>\",\n    \"internalDate\": \"<string>\",\n    \"sizeEstimate\": \"<integer>\",\n    \"raw\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-41bc8228-a633-44a8-bfba-aa951894d418"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-87880af6-d21f-431c-b2ca-78ab904fbfed"
+                        }
+                      ],
+                      "id": "8db835e0-e6ee-4a99-bd6e-b3c88cb79884",
+                      "createdAt": "2026-07-28T01:49:14.000Z",
+                      "updatedAt": "2026-07-28T01:49:14.000Z",
+                      "uid": "35240-8db835e0-e6ee-4a99-bd6e-b3c88cb79884"
+                    },
+                    {
+                      "name": "history",
+                      "item": [
+                        {
+                          "name": "Google Gmail List history",
+                          "id": "2d9ae5a0-ec34-4cb3-b93a-d34b6ff3a7a8",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gmail/v1/users/:userId/history?startHistoryId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gmail",
+                                "v1",
+                                "users",
+                                ":userId",
+                                "history"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "startHistoryId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "60b9df5b-b941-42ce-a79c-54de129f4196",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Lists the history of all changes to the given mailbox."
+                          },
+                          "response": [
+                            {
+                              "id": "c4e07a6b-6400-4bcb-9e33-62bc9a91af8b",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/history?startHistoryId=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "history"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "startHistoryId",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"nextPageToken\": \"<string>\",\n  \"historyId\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-c4e07a6b-6400-4bcb-9e33-62bc9a91af8b"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-2d9ae5a0-ec34-4cb3-b93a-d34b6ff3a7a8"
+                        }
+                      ],
+                      "id": "ed0eded4-7c31-41b3-baa5-7832fd7d53c5",
+                      "createdAt": "2026-07-28T01:49:14.000Z",
+                      "updatedAt": "2026-07-28T01:49:14.000Z",
+                      "uid": "35240-ed0eded4-7c31-41b3-baa5-7832fd7d53c5"
+                    },
+                    {
+                      "name": "watch",
+                      "item": [
+                        {
+                          "name": "Google Gmail Watch mailbox",
+                          "id": "7144f539-623c-469b-953f-f0cef40e2a59",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"labelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"labelFilterAction\": \"exclude\",\n  \"topicName\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/gmail/v1/users/:userId/watch",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gmail",
+                                "v1",
+                                "users",
+                                ":userId",
+                                "watch"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "25eb24c0-c236-463c-ac85-45df89f22301",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Set up or update a push notification watch on the given user mailbox."
+                          },
+                          "response": [
+                            {
+                              "id": "bbf51b04-d10a-4e43-ae88-0c6d13a272e2",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"labelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"labelFilterAction\": \"exclude\",\n  \"topicName\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/watch",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "watch"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"historyId\": \"<string>\",\n  \"expiration\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-bbf51b04-d10a-4e43-ae88-0c6d13a272e2"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-7144f539-623c-469b-953f-f0cef40e2a59"
+                        }
+                      ],
+                      "id": "aa10eecf-dceb-4773-b7ec-9e2123fee4c7",
+                      "createdAt": "2026-07-28T01:49:14.000Z",
+                      "updatedAt": "2026-07-28T01:49:14.000Z",
+                      "uid": "35240-aa10eecf-dceb-4773-b7ec-9e2123fee4c7"
+                    },
+                    {
+                      "name": "stop",
+                      "item": [
+                        {
+                          "name": "Google Gmail Stop watching mailbox",
+                          "id": "489aab46-eff5-4af5-9526-982b2e82bd6a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/gmail/v1/users/:userId/stop",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gmail",
+                                "v1",
+                                "users",
+                                ":userId",
+                                "stop"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "1b0c5fde-07f5-43d9-bbfc-48a45a6d0b53",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Stop receiving push notifications for the given user mailbox."
+                          },
+                          "response": [
+                            {
+                              "id": "b1865ef9-18a1-4360-8008-def3611479fd",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/stop",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "stop"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-b1865ef9-18a1-4360-8008-def3611479fd"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-489aab46-eff5-4af5-9526-982b2e82bd6a"
+                        }
+                      ],
+                      "id": "be736e2c-f6fd-4de4-aacb-7bb9b41dcf70",
+                      "createdAt": "2026-07-28T01:49:14.000Z",
+                      "updatedAt": "2026-07-28T01:49:14.000Z",
+                      "uid": "35240-be736e2c-f6fd-4de4-aacb-7bb9b41dcf70"
+                    },
+                    {
+                      "name": "settings",
+                      "item": [
+                        {
+                          "name": "autoForwarding",
+                          "item": [
+                            {
+                              "name": "Google Gmail Get auto-forwarding settings",
+                              "id": "ef004a3c-ccaa-4294-a23d-a94096b5a44a",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/settings/autoForwarding",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "settings",
+                                    "autoForwarding"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "3cbb7653-f41c-442f-93c7-b2541ecdd396",
+                                      "key": "userId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Gets the auto-forwarding setting for the specified account."
+                              },
+                              "response": [
+                                {
+                                  "id": "715205b3-17d2-4476-afe7-66e74870d457",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/settings/autoForwarding",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "settings",
+                                        "autoForwarding"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "userId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-715205b3-17d2-4476-afe7-66e74870d457"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-ef004a3c-ccaa-4294-a23d-a94096b5a44a"
+                            }
+                          ],
+                          "id": "e6b1f816-786d-4738-b5e4-bb96a6915de6",
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-e6b1f816-786d-4738-b5e4-bb96a6915de6"
+                        },
+                        {
+                          "name": "filters",
+                          "item": [
+                            {
+                              "name": "Google Gmail List filters",
+                              "id": "568e6f37-6de3-4701-a441-0002bda299e1",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/settings/filters",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "settings",
+                                    "filters"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "ced2352f-fbcc-4d4d-a550-335a4df278e3",
+                                      "key": "userId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Lists the message filters of a Gmail user."
+                              },
+                              "response": [
+                                {
+                                  "id": "7bd6fcca-a4da-4380-8a58-4a4aab7e6ed6",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/settings/filters",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "settings",
+                                        "filters"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "userId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-7bd6fcca-a4da-4380-8a58-4a4aab7e6ed6"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-568e6f37-6de3-4701-a441-0002bda299e1"
+                            },
+                            {
+                              "name": "Google Gmail Create filter",
+                              "id": "050cc016-6b25-4e47-994c-143b7a9c7a6b",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gmail/v1/users/:userId/settings/filters",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gmail",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "settings",
+                                    "filters"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "51d0b0a7-7837-4c63-b46e-3419a380949a",
+                                      "key": "userId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Creates a filter."
+                              },
+                              "response": [
+                                {
+                                  "id": "44363e2b-114b-4585-b898-de944dafd386",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gmail/v1/users/:userId/settings/filters",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gmail",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "settings",
+                                        "filters"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "userId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:49:14.000Z",
+                                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                                  "uid": "35240-44363e2b-114b-4585-b898-de944dafd386"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:49:14.000Z",
+                              "updatedAt": "2026-07-28T01:49:14.000Z",
+                              "uid": "35240-050cc016-6b25-4e47-994c-143b7a9c7a6b"
+                            }
+                          ],
+                          "id": "d00cfe4f-58aa-4ec9-8b3c-520dc54933c0",
+                          "createdAt": "2026-07-28T01:49:14.000Z",
+                          "updatedAt": "2026-07-28T01:49:14.000Z",
+                          "uid": "35240-d00cfe4f-58aa-4ec9-8b3c-520dc54933c0"
+                        }
+                      ],
+                      "id": "b417ff56-c20f-4209-8456-012c7e040452",
+                      "createdAt": "2026-07-28T01:49:14.000Z",
+                      "updatedAt": "2026-07-28T01:49:14.000Z",
+                      "uid": "35240-b417ff56-c20f-4209-8456-012c7e040452"
+                    }
+                  ],
+                  "id": "69066095-d354-4c48-ad29-c59c95c02df1",
+                  "createdAt": "2026-07-28T01:49:14.000Z",
+                  "updatedAt": "2026-07-28T01:49:14.000Z",
+                  "uid": "35240-69066095-d354-4c48-ad29-c59c95c02df1"
+                }
+              ],
+              "id": "ab03cd87-c298-4564-a436-5f38161ce67f",
+              "createdAt": "2026-07-28T01:49:14.000Z",
+              "updatedAt": "2026-07-28T01:49:14.000Z",
+              "uid": "35240-ab03cd87-c298-4564-a436-5f38161ce67f"
+            }
+          ],
+          "id": "65e000e8-773c-47bd-b063-b733418d9107",
+          "createdAt": "2026-07-28T01:49:14.000Z",
+          "updatedAt": "2026-07-28T01:49:14.000Z",
+          "uid": "35240-65e000e8-773c-47bd-b063-b733418d9107"
+        }
+      ],
+      "id": "9c77a3ee-974f-44bc-8d6b-d67e3f021bd2",
+      "createdAt": "2026-07-28T01:49:14.000Z",
+      "updatedAt": "2026-07-28T01:49:14.000Z",
+      "uid": "35240-9c77a3ee-974f-44bc-8d6b-d67e3f021bd2"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://gmail.googleapis.com"
+    }
+  ]
+}

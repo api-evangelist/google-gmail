@@ -1,0 +1,14 @@
+{
+  "provider": "google-gmail",
+  "sources": [
+    "google-gmail-gmail-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-gmail-gmail-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
