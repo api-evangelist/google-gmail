@@ -1,0 +1,686 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Gmail API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Gmail",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Gmail Get user profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/profile",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets the current user's Gmail profile."
+        },
+        {
+          "info": {
+            "name": "Google Gmail List messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "labelIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists the messages in the user's mailbox."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Insert message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Directly inserts a message into the user's mailbox."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Get message",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages/:id",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets the specified message."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Delete message",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages/:id",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Immediately and permanently deletes the specified message."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Send message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages/send",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sends the specified message to the recipients."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Modify message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages/:id/modify",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modifies the labels on the specified message."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Trash message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages/:id/trash",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Moves the specified message to the trash."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Untrash message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages/:id/untrash",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Removes the specified message from the trash."
+        },
+        {
+          "info": {
+            "name": "Google Gmail List labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/labels",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists all labels in the user's mailbox."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Create label",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/labels",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new label."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Get label",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/labels/:id",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets the specified label."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Update label",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/labels/:id",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified label."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Delete label",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/labels/:id",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Immediately and permanently deletes the specified label."
+        },
+        {
+          "info": {
+            "name": "Google Gmail List threads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/threads",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists the threads in the user's mailbox."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Get thread",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/threads/:id",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets the specified thread."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Delete thread",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/threads/:id",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Immediately and permanently deletes the specified thread."
+        },
+        {
+          "info": {
+            "name": "Google Gmail List drafts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/drafts",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists the drafts in the user's mailbox."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Create draft",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/drafts",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new draft with the DRAFT label."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Get draft",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/drafts/:id",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets the specified draft."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Update draft",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/drafts/:id",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces a draft's content."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Delete draft",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/drafts/:id",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Immediately and permanently deletes the specified draft."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Send draft",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/drafts/send",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sends the specified existing draft to the recipients."
+        },
+        {
+          "info": {
+            "name": "Google Gmail List history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/history",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "startHistoryId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists the history of all changes to the given mailbox."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Watch mailbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/watch",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set up or update a push notification watch on the given user mailbox."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Stop watching mailbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/stop",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stop receiving push notifications for the given user mailbox."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Get auto-forwarding settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/autoForwarding",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets the auto-forwarding setting for the specified account."
+        },
+        {
+          "info": {
+            "name": "Google Gmail List filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/filters",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists the message filters of a Gmail user."
+        },
+        {
+          "info": {
+            "name": "Google Gmail Create filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/filters",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Creates a filter."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
