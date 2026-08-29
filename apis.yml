@@ -5,6 +5,18 @@ description: >-
   access to Gmail mailboxes, supporting message sending, drafting, organizing with labels, managing settings, and push
   notifications for mailbox changes. The API uses OAuth 2.0 for authorization and supports both user and service account
   authentication for Google Workspace domains.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
