@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google Gmail API
   description: The Gmail API lets you view and manage Gmail mailbox data like threads, messages, and labels. It provides RESTful access to Gmail mailboxes including message sending, drafting, organizing with labels, managing settings, and push notifications for mailbox changes.
@@ -705,26 +705,25 @@ paths:
       - Gmail
 components:
   schemas:
-    Message:
+    Thread:
       type: object
       properties:
         id:
           type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
         snippet:
           type: string
         historyId:
           type: string
-        internalDate:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+    WatchResponse:
+      type: object
+      properties:
+        historyId:
           type: string
-        sizeEstimate:
-          type: integer
-        raw:
+        expiration:
           type: string
     ModifyMessageRequest:
       type: object
@@ -737,6 +736,28 @@ components:
           type: array
           items:
             type: string
+    Profile:
+      type: object
+      properties:
+        emailAddress:
+          type: string
+        messagesTotal:
+          type: integer
+        threadsTotal:
+          type: integer
+        historyId:
+          type: string
+    ListDraftsResponse:
+      type: object
+      properties:
+        drafts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Draft'
+        nextPageToken:
+          type: string
+        resultSizeEstimate:
+          type: integer
     ListMessagesResponse:
       type: object
       properties:
@@ -748,6 +769,17 @@ components:
           type: string
         resultSizeEstimate:
           type: integer
+    ListHistoryResponse:
+      type: object
+      properties:
+        history:
+          type: array
+          items:
+            type: object
+        nextPageToken:
+          type: string
+        historyId:
+          type: string
     WatchRequest:
       type: object
       properties:
@@ -778,41 +810,6 @@ components:
           enum:
           - system
           - user
-    Thread:
-      type: object
-      properties:
-        id:
-          type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
-    ListHistoryResponse:
-      type: object
-      properties:
-        history:
-          type: array
-          items:
-            type: object
-        nextPageToken:
-          type: string
-        historyId:
-          type: string
-    ListDraftsResponse:
-      type: object
-      properties:
-        drafts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Draft'
-        nextPageToken:
-          type: string
-        resultSizeEstimate:
-          type: integer
     ListLabelsResponse:
       type: object
       properties:
@@ -827,17 +824,6 @@ components:
           type: string
         message:
           $ref: '#/components/schemas/Message'
-    Profile:
-      type: object
-      properties:
-        emailAddress:
-          type: string
-        messagesTotal:
-          type: integer
-        threadsTotal:
-          type: integer
-        historyId:
-          type: string
     ListThreadsResponse:
       type: object
       properties:
@@ -849,10 +835,24 @@ components:
           type: string
         resultSizeEstimate:
           type: integer
-    WatchResponse:
+    Message:
       type: object
       properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
         historyId:
           type: string
-        expiration:
+        internalDate:
+          type: string
+        sizeEstimate:
+          type: integer
+        raw:
           type: string
