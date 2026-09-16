@@ -1,10 +1,9 @@
 aid: google-gmail
 name: Google Gmail
-description: >-
-  The Gmail API lets you view and manage Gmail mailbox data like threads, messages, and labels. It provides RESTful
-  access to Gmail mailboxes, supporting message sending, drafting, organizing with labels, managing settings, and push
-  notifications for mailbox changes. The API uses OAuth 2.0 for authorization and supports both user and service account
-  authentication for Google Workspace domains.
+description: The Gmail API lets you view and manage Gmail mailbox data like threads, messages, and labels.
+  It provides RESTful access to Gmail mailboxes, supporting message sending, drafting, organizing with
+  labels, managing settings, and push notifications for mailbox changes. The API uses OAuth 2.0 for authorization
+  and supports both user and service account authentication for Google Workspace domains.
 deliveryModel:
   model: saas
   open_source: false
@@ -32,21 +31,21 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-gmail.png
 url: https://raw.githubusercontent.com/api-evangelist/google-gmail/refs/heads/main/apis.yml
 created: '2026-03-13'
-modified: '2026-05-19'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 type: Index
 tags:
-  - Drafts
-  - Email
-  - Gmail
-  - Google
-  - Google Workspace
-  - Labels
-  - Messaging
-  - Threads
+- Drafts
+- Email
+- Gmail
+- Google
+- Google Workspace
+- Labels
+- Messaging
+- Threads
 apis:
 - aid: google-gmail:google-gmail-gmail-api
-  name: Google Gmail Gmail API
+  name: Google Gmail API
   description: The Gmail API from Google Gmail — 19 operation(s) for gmail.
   humanURL: https://developers.google.com/workspace/gmail/api/guides
   baseURL: https://gmail.googleapis.com
@@ -66,42 +65,42 @@ apis:
   - type: JSONLD
     url: json-ld/json-ld.jsonld
 common:
-  - type: Website
-    url: https://www.google.com/
-  - type: PostmanWorkspace
-    url: https://www.postman.com/kinlaneapi/google-gmail/overview
-  - type: AgenticAccess
-    url: agentic-access/google-gmail-agentic-access.yml
-  - type: VulnerabilityDisclosure
-    url: security/google-gmail-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/google-gmail-domain-security.yml
-  - type: GitHubOrganization
-    url: https://github.com/googleworkspace
-  - type: Portal
-    url: https://developers.google.com/workspace/gmail
-  - type: GettingStarted
-    url: https://developers.google.com/workspace/gmail/api/guides
-  - type: Documentation
-    url: https://developers.google.com/workspace/gmail/api
-  - type: Authentication
-    url: https://developers.google.com/workspace/gmail/api/auth/about-auth
-  - type: Pricing
-    url: https://developers.google.com/workspace/gmail/api/guides/quota
-  - type: TermsOfService
-    url: https://developers.google.com/terms
-  - type: PrivacyPolicy
-    url: https://policies.google.com/privacy
-  - type: StatusPage
-    url: https://status.cloud.google.com/
-  - type: Support
-    url: https://developers.google.com/workspace/gmail/api/support
-  - type: JSONLD
-    url: json-ld/json-ld.jsonld
-  - url: https://blog.google/products/gmail/rss/
-    type: Blog
+- type: Website
+  url: https://www.google.com/
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/google-gmail/overview
+- type: AgenticAccess
+  url: agentic-access/google-gmail-agentic-access.yml
+- type: VulnerabilityDisclosure
+  url: security/google-gmail-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/google-gmail-domain-security.yml
+- type: GitHubOrganization
+  url: https://github.com/googleworkspace
+- type: Portal
+  url: https://developers.google.com/workspace/gmail
+- type: GettingStarted
+  url: https://developers.google.com/workspace/gmail/api/guides
+- type: Documentation
+  url: https://developers.google.com/workspace/gmail/api
+- type: Authentication
+  url: https://developers.google.com/workspace/gmail/api/auth/about-auth
+- type: Pricing
+  url: https://developers.google.com/workspace/gmail/api/guides/quota
+- type: TermsOfService
+  url: https://developers.google.com/terms
+- type: PrivacyPolicy
+  url: https://policies.google.com/privacy
+- type: StatusPage
+  url: https://status.cloud.google.com/
+- type: Support
+  url: https://developers.google.com/workspace/gmail/api/support
+- type: JSONLD
+  url: json-ld/json-ld.jsonld
+- url: https://blog.google/products/gmail/rss/
+  type: Blog
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
 x-parent: google
 x-relationship: product
