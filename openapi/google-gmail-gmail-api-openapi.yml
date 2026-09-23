@@ -705,136 +705,6 @@ paths:
       - Gmail
 components:
   schemas:
-    Thread:
-      type: object
-      properties:
-        id:
-          type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
-    WatchResponse:
-      type: object
-      properties:
-        historyId:
-          type: string
-        expiration:
-          type: string
-    ModifyMessageRequest:
-      type: object
-      properties:
-        addLabelIds:
-          type: array
-          items:
-            type: string
-        removeLabelIds:
-          type: array
-          items:
-            type: string
-    Profile:
-      type: object
-      properties:
-        emailAddress:
-          type: string
-        messagesTotal:
-          type: integer
-        threadsTotal:
-          type: integer
-        historyId:
-          type: string
-    ListDraftsResponse:
-      type: object
-      properties:
-        drafts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Draft'
-        nextPageToken:
-          type: string
-        resultSizeEstimate:
-          type: integer
-    ListMessagesResponse:
-      type: object
-      properties:
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
-        nextPageToken:
-          type: string
-        resultSizeEstimate:
-          type: integer
-    ListHistoryResponse:
-      type: object
-      properties:
-        history:
-          type: array
-          items:
-            type: object
-        nextPageToken:
-          type: string
-        historyId:
-          type: string
-    WatchRequest:
-      type: object
-      properties:
-        labelIds:
-          type: array
-          items:
-            type: string
-        labelFilterAction:
-          type: string
-          enum:
-          - include
-          - exclude
-        topicName:
-          type: string
-    Label:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        messageListVisibility:
-          type: string
-        labelListVisibility:
-          type: string
-        type:
-          type: string
-          enum:
-          - system
-          - user
-    ListLabelsResponse:
-      type: object
-      properties:
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Label'
-    Draft:
-      type: object
-      properties:
-        id:
-          type: string
-        message:
-          $ref: '#/components/schemas/Message'
-    ListThreadsResponse:
-      type: object
-      properties:
-        threads:
-          type: array
-          items:
-            $ref: '#/components/schemas/Thread'
-        nextPageToken:
-          type: string
-        resultSizeEstimate:
-          type: integer
     Message:
       type: object
       properties:
@@ -856,3 +726,133 @@ components:
           type: integer
         raw:
           type: string
+    Draft:
+      type: object
+      properties:
+        id:
+          type: string
+        message:
+          $ref: '#/components/schemas/Message'
+    WatchRequest:
+      type: object
+      properties:
+        labelIds:
+          type: array
+          items:
+            type: string
+        labelFilterAction:
+          type: string
+          enum:
+          - include
+          - exclude
+        topicName:
+          type: string
+    Profile:
+      type: object
+      properties:
+        emailAddress:
+          type: string
+        messagesTotal:
+          type: integer
+        threadsTotal:
+          type: integer
+        historyId:
+          type: string
+    Label:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        messageListVisibility:
+          type: string
+        labelListVisibility:
+          type: string
+        type:
+          type: string
+          enum:
+          - system
+          - user
+    Thread:
+      type: object
+      properties:
+        id:
+          type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+    WatchResponse:
+      type: object
+      properties:
+        historyId:
+          type: string
+        expiration:
+          type: string
+    ListHistoryResponse:
+      type: object
+      properties:
+        history:
+          type: array
+          items:
+            type: object
+        nextPageToken:
+          type: string
+        historyId:
+          type: string
+    ListDraftsResponse:
+      type: object
+      properties:
+        drafts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Draft'
+        nextPageToken:
+          type: string
+        resultSizeEstimate:
+          type: integer
+    ListLabelsResponse:
+      type: object
+      properties:
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+    ListMessagesResponse:
+      type: object
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+        nextPageToken:
+          type: string
+        resultSizeEstimate:
+          type: integer
+    ListThreadsResponse:
+      type: object
+      properties:
+        threads:
+          type: array
+          items:
+            $ref: '#/components/schemas/Thread'
+        nextPageToken:
+          type: string
+        resultSizeEstimate:
+          type: integer
+    ModifyMessageRequest:
+      type: object
+      properties:
+        addLabelIds:
+          type: array
+          items:
+            type: string
+        removeLabelIds:
+          type: array
+          items:
+            type: string
