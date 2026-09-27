@@ -705,6 +705,35 @@ paths:
       - Gmail
 components:
   schemas:
+    ListMessagesResponse:
+      type: object
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+        nextPageToken:
+          type: string
+        resultSizeEstimate:
+          type: integer
+    ListDraftsResponse:
+      type: object
+      properties:
+        drafts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Draft'
+        nextPageToken:
+          type: string
+        resultSizeEstimate:
+          type: integer
+    Draft:
+      type: object
+      properties:
+        id:
+          type: string
+        message:
+          $ref: '#/components/schemas/Message'
     Message:
       type: object
       properties:
@@ -726,38 +755,6 @@ components:
           type: integer
         raw:
           type: string
-    Draft:
-      type: object
-      properties:
-        id:
-          type: string
-        message:
-          $ref: '#/components/schemas/Message'
-    WatchRequest:
-      type: object
-      properties:
-        labelIds:
-          type: array
-          items:
-            type: string
-        labelFilterAction:
-          type: string
-          enum:
-          - include
-          - exclude
-        topicName:
-          type: string
-    Profile:
-      type: object
-      properties:
-        emailAddress:
-          type: string
-        messagesTotal:
-          type: integer
-        threadsTotal:
-          type: integer
-        historyId:
-          type: string
     Label:
       type: object
       properties:
@@ -774,6 +771,24 @@ components:
           enum:
           - system
           - user
+    Profile:
+      type: object
+      properties:
+        emailAddress:
+          type: string
+        messagesTotal:
+          type: integer
+        threadsTotal:
+          type: integer
+        historyId:
+          type: string
+    WatchResponse:
+      type: object
+      properties:
+        historyId:
+          type: string
+        expiration:
+          type: string
     Thread:
       type: object
       properties:
@@ -787,13 +802,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Message'
-    WatchResponse:
+    ListLabelsResponse:
       type: object
       properties:
-        historyId:
-          type: string
-        expiration:
-          type: string
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
     ListHistoryResponse:
       type: object
       properties:
@@ -805,46 +820,20 @@ components:
           type: string
         historyId:
           type: string
-    ListDraftsResponse:
+    WatchRequest:
       type: object
       properties:
-        drafts:
+        labelIds:
           type: array
           items:
-            $ref: '#/components/schemas/Draft'
-        nextPageToken:
+            type: string
+        labelFilterAction:
           type: string
-        resultSizeEstimate:
-          type: integer
-    ListLabelsResponse:
-      type: object
-      properties:
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Label'
-    ListMessagesResponse:
-      type: object
-      properties:
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
-        nextPageToken:
+          enum:
+          - include
+          - exclude
+        topicName:
           type: string
-        resultSizeEstimate:
-          type: integer
-    ListThreadsResponse:
-      type: object
-      properties:
-        threads:
-          type: array
-          items:
-            $ref: '#/components/schemas/Thread'
-        nextPageToken:
-          type: string
-        resultSizeEstimate:
-          type: integer
     ModifyMessageRequest:
       type: object
       properties:
@@ -856,3 +845,14 @@ components:
           type: array
           items:
             type: string
+    ListThreadsResponse:
+      type: object
+      properties:
+        threads:
+          type: array
+          items:
+            $ref: '#/components/schemas/Thread'
+        nextPageToken:
+          type: string
+        resultSizeEstimate:
+          type: integer
