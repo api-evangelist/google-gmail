@@ -705,17 +705,17 @@ paths:
       - Gmail
 components:
   schemas:
-    ListMessagesResponse:
+    Profile:
       type: object
       properties:
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
-        nextPageToken:
+        emailAddress:
           type: string
-        resultSizeEstimate:
+        messagesTotal:
           type: integer
+        threadsTotal:
+          type: integer
+        historyId:
+          type: string
     ListDraftsResponse:
       type: object
       properties:
@@ -727,6 +727,37 @@ components:
           type: string
         resultSizeEstimate:
           type: integer
+    WatchResponse:
+      type: object
+      properties:
+        historyId:
+          type: string
+        expiration:
+          type: string
+    ListHistoryResponse:
+      type: object
+      properties:
+        history:
+          type: array
+          items:
+            type: object
+        nextPageToken:
+          type: string
+        historyId:
+          type: string
+    Thread:
+      type: object
+      properties:
+        id:
+          type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
     Draft:
       type: object
       properties:
@@ -734,6 +765,69 @@ components:
           type: string
         message:
           $ref: '#/components/schemas/Message'
+    WatchRequest:
+      type: object
+      properties:
+        labelIds:
+          type: array
+          items:
+            type: string
+        labelFilterAction:
+          type: string
+          enum:
+          - include
+          - exclude
+        topicName:
+          type: string
+    ListMessagesResponse:
+      type: object
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+        nextPageToken:
+          type: string
+        resultSizeEstimate:
+          type: integer
+    Label:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        messageListVisibility:
+          type: string
+        labelListVisibility:
+          type: string
+        type:
+          type: string
+          enum:
+          - system
+          - user
+    ListThreadsResponse:
+      type: object
+      properties:
+        threads:
+          type: array
+          items:
+            $ref: '#/components/schemas/Thread'
+        nextPageToken:
+          type: string
+        resultSizeEstimate:
+          type: integer
+    ModifyMessageRequest:
+      type: object
+      properties:
+        addLabelIds:
+          type: array
+          items:
+            type: string
+        removeLabelIds:
+          type: array
+          items:
+            type: string
     Message:
       type: object
       properties:
@@ -755,53 +849,6 @@ components:
           type: integer
         raw:
           type: string
-    Label:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        messageListVisibility:
-          type: string
-        labelListVisibility:
-          type: string
-        type:
-          type: string
-          enum:
-          - system
-          - user
-    Profile:
-      type: object
-      properties:
-        emailAddress:
-          type: string
-        messagesTotal:
-          type: integer
-        threadsTotal:
-          type: integer
-        historyId:
-          type: string
-    WatchResponse:
-      type: object
-      properties:
-        historyId:
-          type: string
-        expiration:
-          type: string
-    Thread:
-      type: object
-      properties:
-        id:
-          type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
     ListLabelsResponse:
       type: object
       properties:
@@ -809,50 +856,3 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Label'
-    ListHistoryResponse:
-      type: object
-      properties:
-        history:
-          type: array
-          items:
-            type: object
-        nextPageToken:
-          type: string
-        historyId:
-          type: string
-    WatchRequest:
-      type: object
-      properties:
-        labelIds:
-          type: array
-          items:
-            type: string
-        labelFilterAction:
-          type: string
-          enum:
-          - include
-          - exclude
-        topicName:
-          type: string
-    ModifyMessageRequest:
-      type: object
-      properties:
-        addLabelIds:
-          type: array
-          items:
-            type: string
-        removeLabelIds:
-          type: array
-          items:
-            type: string
-    ListThreadsResponse:
-      type: object
-      properties:
-        threads:
-          type: array
-          items:
-            $ref: '#/components/schemas/Thread'
-        nextPageToken:
-          type: string
-        resultSizeEstimate:
-          type: integer
