@@ -705,6 +705,65 @@ paths:
       - Gmail
 components:
   schemas:
+    WatchResponse:
+      type: object
+      properties:
+        historyId:
+          type: string
+        expiration:
+          type: string
+    WatchRequest:
+      type: object
+      properties:
+        labelIds:
+          type: array
+          items:
+            type: string
+        labelFilterAction:
+          type: string
+          enum:
+          - include
+          - exclude
+        topicName:
+          type: string
+    ListHistoryResponse:
+      type: object
+      properties:
+        history:
+          type: array
+          items:
+            type: object
+        nextPageToken:
+          type: string
+        historyId:
+          type: string
+    Draft:
+      type: object
+      properties:
+        id:
+          type: string
+        message:
+          $ref: '#/components/schemas/Message'
+    Thread:
+      type: object
+      properties:
+        id:
+          type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+    ListLabelsResponse:
+      type: object
+      properties:
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
     Profile:
       type: object
       properties:
@@ -727,58 +786,49 @@ components:
           type: string
         resultSizeEstimate:
           type: integer
-    WatchResponse:
+    ListThreadsResponse:
       type: object
       properties:
-        historyId:
-          type: string
-        expiration:
-          type: string
-    ListHistoryResponse:
-      type: object
-      properties:
-        history:
+        threads:
           type: array
           items:
-            type: object
+            $ref: '#/components/schemas/Thread'
         nextPageToken:
           type: string
-        historyId:
-          type: string
-    Thread:
+        resultSizeEstimate:
+          type: integer
+    Message:
       type: object
       properties:
         id:
           type: string
-        snippet:
+        threadId:
           type: string
-        historyId:
-          type: string
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
-    Draft:
-      type: object
-      properties:
-        id:
-          type: string
-        message:
-          $ref: '#/components/schemas/Message'
-    WatchRequest:
-      type: object
-      properties:
         labelIds:
           type: array
           items:
             type: string
-        labelFilterAction:
+        snippet:
           type: string
-          enum:
-          - include
-          - exclude
-        topicName:
+        historyId:
           type: string
+        internalDate:
+          type: string
+        sizeEstimate:
+          type: integer
+        raw:
+          type: string
+    ModifyMessageRequest:
+      type: object
+      properties:
+        addLabelIds:
+          type: array
+          items:
+            type: string
+        removeLabelIds:
+          type: array
+          items:
+            type: string
     ListMessagesResponse:
       type: object
       properties:
@@ -806,53 +856,3 @@ components:
           enum:
           - system
           - user
-    ListThreadsResponse:
-      type: object
-      properties:
-        threads:
-          type: array
-          items:
-            $ref: '#/components/schemas/Thread'
-        nextPageToken:
-          type: string
-        resultSizeEstimate:
-          type: integer
-    ModifyMessageRequest:
-      type: object
-      properties:
-        addLabelIds:
-          type: array
-          items:
-            type: string
-        removeLabelIds:
-          type: array
-          items:
-            type: string
-    Message:
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
-    ListLabelsResponse:
-      type: object
-      properties:
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Label'
